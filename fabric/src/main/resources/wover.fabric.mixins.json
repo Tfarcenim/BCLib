@@ -1,0 +1,50 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.betterx.wover.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "BiomeGenerationSettingsAccessor",
+    "ChunkGeneratorAccessor",
+    "HolderSetNamedAccessor",
+    "MappedRegistryMixin",
+    "MinecraftServerMixin",
+    "ModelProviderMixin",
+    "NoiseBasedChunkGeneratorMixin",
+    "NoiseGeneratorSettingsMixin",
+    "PoiTypeMixin",
+    "PotionBrewingMixin",
+    "RecipeManagerMixin",
+    "RegistryDataLoaderMixin",
+    "RegistryDataLoaderMixinEarly",
+    "ReloadableServerResourcesMixin",
+    "SurfaceRulesContextAccessor",
+    "TagLoaderMixin",
+    "VanillaRegistriesMixin",
+    "create_new_world_folder.WorldDimensionDataMixin",
+    "dimension_load.WorldStemMixin",
+    "item_stack_setup.CraftingRecipeMixin",
+    "item_stack_setup.ItemInputMixin",
+    "item_stack_setup.LootItemFunctionMixin",
+    "item_stack_setup.SmithingTransformRecipeMixin",
+    "resource_manager.MinecraftServerMixin",
+    "resource_manager.WorldStemMixin",
+    "server_level_ready.ServerLevelMixin",
+    "world_folder.MainMixin",
+    "world_registry.WorldDimensionDataMixin",
+    "world_registry.WorldLoaderMixin",
+    "world_registry.WorldStemMixin"
+  ],
+  "client": [
+    "client.allow_experimental_warning_screen.WorldOpenFlowsMixin",
+    "client.before_client_load.WorldOpenFlowsMixin",
+    "client.create_new_world_folder.CreateWorldScreenMixin",
+    "client.startup_screen.MinecraftMixin",
+    "client.world_folder.CreateWorldScreenMixin",
+    "client.world_folder.WorldOpenFlowsMixin",
+    "client.world_registry.CreateWorldScreenMixin"
+  ]
+}

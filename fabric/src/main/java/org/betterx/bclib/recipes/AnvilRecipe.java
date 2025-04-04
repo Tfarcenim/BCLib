@@ -1,6 +1,6 @@
 package org.betterx.bclib.recipes;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.interfaces.UnknownReceipBookCategory;
 import org.betterx.bclib.util.ItemUtil;
 import org.betterx.wover.item.api.ItemStackHelper;
@@ -46,13 +46,13 @@ import org.jetbrains.annotations.NotNull;
 
 public class AnvilRecipe implements Recipe<AnvilRecipeInput>, UnknownReceipBookCategory {
     public final static String GROUP = "smithing";
-    public final static RecipeType<AnvilRecipe> TYPE = BCLRecipeManager.registerType(BCLib.MOD_ID, GROUP);
+    public final static RecipeType<AnvilRecipe> TYPE = BCLRecipeManager.registerType(BCLibFabric.MOD_ID, GROUP);
     public final static Serializer SERIALIZER = BCLRecipeManager.registerSerializer(
-            BCLib.MOD_ID,
+            BCLibFabric.MOD_ID,
             GROUP,
             new Serializer()
     );
-    public final static ResourceLocation ID = BCLib.makeID(GROUP);
+    public final static ResourceLocation ID = BCLibFabric.makeID(GROUP);
 
 
     public static void register() {

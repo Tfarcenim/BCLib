@@ -1,7 +1,7 @@
 package org.betterx.wover.datagen.api;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.ModCore;
-import org.betterx.wover.entrypoint.LibWoverTag;
 import org.betterx.wover.tag.api.TagManager;
 import org.betterx.wover.tag.api.TagRegistry;
 import org.betterx.wover.tag.api.event.context.ItemTagBootstrapContext;
@@ -236,7 +236,7 @@ public abstract class WoverTagProvider<T, P extends TagBootstrapContext<T>> impl
                 forceWrite.forEach(provider::asPlaceholder);
                 prepareTags(provider);
 
-                LibWoverTag.C.LOG.debug("    ****> Writing tags for {}", modIDs);
+                WoverFabric.C_TAG.LOG.debug("    ****> Writing tags for {}", modIDs);
                 provider.forEach((tag, allElements) -> {
                     boolean force = forceWrite.contains(tag);
 

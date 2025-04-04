@@ -26,7 +26,6 @@ bin/
 
 # fabric
 
-run/
 run-client/
 run-server/
 output/
@@ -34,3 +33,4 @@ output/
 /CHANGES.md
 /src/main/generated/.cache/
 /modrinth.json
+/fabric/runs

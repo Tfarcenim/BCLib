@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.levelgen.structures;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.util.BlocksHelper;
 
 import net.minecraft.core.BlockPos;
@@ -94,7 +94,7 @@ public class StructureNBT {
     @Nullable
     private BlockPos getCenteredPos(BlockPos pos, Rotation rotation, Mirror mirror) {
         if (structure == null) {
-            BCLib.LOGGER.error("No structure: " + location.toString());
+            BCLibFabric.LOGGER.error("No structure: " + location.toString());
             return null;
         }
 
@@ -146,7 +146,7 @@ public class StructureNBT {
             try {
                 uri = url.toURI();
             } catch (URISyntaxException e) {
-                BCLib.LOGGER.error("Unable to load Resources: ", e);
+                BCLibFabric.LOGGER.error("Unable to load Resources: ", e);
                 return null;
             }
             Path myPath;
@@ -158,7 +158,7 @@ public class StructureNBT {
                     try {
                         fileSystem = FileSystems.newFileSystem(uri, new HashMap<>());
                     } catch (IOException e) {
-                        BCLib.LOGGER.error("Unable to load Filesystem: ", e);
+                        BCLibFabric.LOGGER.error("Unable to load Filesystem: ", e);
                         return null;
                     }
                 }
@@ -186,17 +186,17 @@ public class StructureNBT {
                                 ))
                                 .sorted(Comparator.comparing(ResourceLocation::toString))
                                 .map(r -> {
-                                    BCLib.LOGGER.info("Loading Structure: " + r);
+                                    BCLibFabric.LOGGER.info("Loading Structure: " + r);
                                     try {
                                         return StructureNBT.create(r);
                                     } catch (Exception e) {
-                                        BCLib.LOGGER.error("Unable to load Structure " + r, e);
+                                        BCLibFabric.LOGGER.error("Unable to load Structure " + r, e);
                                     }
                                     return null;
                                 })
                                 .toList();
                 } catch (IOException e) {
-                    BCLib.LOGGER.error("Unable to load Resources: ", e);
+                    BCLibFabric.LOGGER.error("Unable to load Resources: ", e);
                     return null;
                 }
             }

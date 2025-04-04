@@ -1,9 +1,9 @@
 package org.betterx.wover.ui.api;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.config.api.client.ClientConfigs;
 import org.betterx.wover.config.impl.CachedConfig;
 import org.betterx.wover.core.api.ModCore;
-import org.betterx.wover.entrypoint.LibWoverUi;
 
 import net.fabricmc.loader.api.FabricLoader;
 
@@ -120,7 +120,7 @@ public class VersionChecker implements Runnable {
 
         ModCore modCore = ModCore.create("minecraft");
         String minecraftVersion = modCore.getModVersion().toString().replace(".", "_");
-        LibWoverUi.C.LOG.info("Check Versions for minecraft=" + minecraftVersion);
+        WoverFabric.C_UI.LOG.info("Check Versions for minecraft=" + minecraftVersion);
 
         try {
             String fileName = "mc_fabric_" + URLEncoder.encode(
@@ -139,13 +139,13 @@ public class VersionChecker implements Runnable {
                 processVersions(json);
             }
         } catch (UnsupportedEncodingException e) {
-            LibWoverUi.C.LOG.error("Failed to encode URL during VersionCheck", e);
+            WoverFabric.C_UI.LOG.error("Failed to encode URL during VersionCheck", e);
             return;
         } catch (MalformedURLException e) {
-            LibWoverUi.C.LOG.error("Invalid URL during VersionCheck", e);
+            WoverFabric.C_UI.LOG.error("Invalid URL during VersionCheck", e);
             return;
         } catch (IOException e) {
-            LibWoverUi.C.LOG.error("I/O Error during VersionCheck", e);
+            WoverFabric.C_UI.LOG.error("I/O Error during VersionCheck", e);
             return;
         }
 
@@ -153,7 +153,7 @@ public class VersionChecker implements Runnable {
 
     private void processVersions(Versions json) {
         if (json != null) {
-            LibWoverUi.C.LOG.info("Received Version Info for minecraft=" + json.mc + ", loader=" + json.loader);
+            WoverFabric.C_UI.LOG.info("Received Version Info for minecraft=" + json.mc + ", loader=" + json.loader);
             if (json.mods != null) {
                 for (ModVersion mod : json.mods) {
                     if (!KNOWN_MODS.contains(mod.n)) {
@@ -167,14 +167,14 @@ public class VersionChecker implements Runnable {
 
                         boolean isNew = TEST_UPDATE_SCREEN || installedVersion.isLessThan(mod.v)
                                 && !installedVersion.equals("0.0.0");
-                        LibWoverUi.C.LOG.info(" - " + mod.n + ":" + mod.v + (isNew ? " (update available)" : ""));
+                        WoverFabric.C_UI.LOG.info(" - " + mod.n + ":" + mod.v + (isNew ? " (update available)" : ""));
                         if (isNew)
                             NEW_VERSIONS.add(mod);
                     }
                 }
             }
         } else {
-            LibWoverUi.C.LOG.warn("No valid Version Info");
+            WoverFabric.C_UI.LOG.warn("No valid Version Info");
         }
     }
 

@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.behaviours.interfaces.BehaviourCompostable;
 import org.betterx.bclib.blocks.BaseBarrelBlock;
 import org.betterx.bclib.blocks.BaseChestBlock;
@@ -45,7 +45,7 @@ public class PostInitAPI {
     }
 
     /**
-     * Called in proper BCLib entry points, for internal usage only.
+     * Called in proper BCLibFabric entry points, for internal usage only.
      *
      * @param isClient {@code boolean}, {@code true} for client, {@code false} for server.
      */
@@ -98,8 +98,8 @@ public class PostInitAPI {
         if (block instanceof BehaviourCompostable c) {
             if (item != null && item != Items.AIR) {
                 ComposterAPI.allowCompost(c.compostingChance(), item);
-            } else if (BCLib.isDatagen()) {
-                BCLib.LOGGER.verbose("Block " + block + " has compostable behaviour but no item!");
+            } else if (BCLibFabric.isDatagen()) {
+                BCLibFabric.LOGGER.verbose("Block " + block + " has compostable behaviour but no item!");
             }
         }
 

@@ -1,6 +1,6 @@
 package org.betterx.bclib.recipes;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.interfaces.AlloyingRecipeWorkstation;
 import org.betterx.bclib.interfaces.UnknownReceipBookCategory;
 import org.betterx.bclib.util.ItemUtil;
@@ -37,9 +37,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class AlloyingRecipe implements Recipe<AlloyingRecipeInput>, UnknownReceipBookCategory {
     public final static String GROUP = "alloying";
-    public final static RecipeType<AlloyingRecipe> TYPE = BCLRecipeManager.registerType(BCLib.MOD_ID, GROUP);
+    public final static RecipeType<AlloyingRecipe> TYPE = BCLRecipeManager.registerType(BCLibFabric.MOD_ID, GROUP);
     public final static Serializer SERIALIZER = BCLRecipeManager.registerSerializer(
-            BCLib.MOD_ID,
+            BCLibFabric.MOD_ID,
             GROUP,
             new Serializer()
     );

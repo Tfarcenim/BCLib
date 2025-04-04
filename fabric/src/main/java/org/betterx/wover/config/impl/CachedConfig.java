@@ -1,9 +1,9 @@
 package org.betterx.wover.config.impl;
 
 import de.ambertation.wunderlib.configs.ConfigFile;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.config.api.Configs;
 import org.betterx.wover.config.api.MainConfig;
-import org.betterx.wover.entrypoint.LibWoverUi;
 import org.betterx.wover.ui.api.VersionChecker;
 
 import java.nio.charset.StandardCharsets;
@@ -30,7 +30,7 @@ public class CachedConfig extends ConfigFile {
     public static final CachedConfig INSTANCE = Configs.register(CachedConfig::new);
 
     public CachedConfig() {
-        super(LibWoverUi.C, "cached");
+        super(WoverFabric.C_UI, "cached");
     }
 
     public String lastVersionJson() {

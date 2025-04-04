@@ -1,7 +1,7 @@
 package org.betterx.ui;
 
 import de.ambertation.wunderlib.ui.ColorHelper;
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.util.ColorExtractor;
 import org.betterx.bclib.util.MHelper;
 
@@ -237,7 +237,7 @@ public class ColorUtil {
                 shift -= 8;
             }
         } catch (NumberFormatException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
             return -1;
         }
 
@@ -340,8 +340,8 @@ public class ColorUtil {
             try {
                 return NativeImage.read(imgResource.get().open());
             } catch (IOException e) {
-                BCLib.LOGGER.warn("Can't load texture image: {}. Will be created empty image.", image);
-                BCLib.LOGGER.warn("Cause: {}.", e.getMessage());
+                BCLibFabric.LOGGER.warn("Can't load texture image: {}. Will be created empty image.", image);
+                BCLibFabric.LOGGER.warn("Cause: {}.", e.getMessage());
             }
         }
         return new NativeImage(w, h, false);

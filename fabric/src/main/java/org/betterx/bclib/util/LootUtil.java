@@ -1,6 +1,6 @@
 package org.betterx.bclib.util;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.interfaces.LootPoolAccessor;
 import org.betterx.bclib.interfaces.tools.*;
 import org.betterx.bclib.items.tool.BaseShearsItem;
@@ -73,7 +73,7 @@ public class LootUtil {
                 return true;
             }
         } catch (Throwable t) {
-            BCLib.LOGGER.error("ERROR building loot table: " + t.getMessage());
+            BCLibFabric.LOGGER.error("ERROR building loot table: " + t.getMessage());
         }
 
         return false;

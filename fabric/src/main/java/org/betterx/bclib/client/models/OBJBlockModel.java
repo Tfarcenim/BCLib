@@ -1,6 +1,6 @@
 package org.betterx.bclib.client.models;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.util.BlocksHelper;
 import org.betterx.bclib.util.MHelper;
 
@@ -168,7 +168,7 @@ public class OBJBlockModel implements UnbakedModel, BakedModel {
         try {
             input = resource.open();
         } catch (IOException e) {
-            BCLib.LOGGER.error("Unable to load Model", e);
+            BCLibFabric.LOGGER.error("Unable to load Model", e);
             throw new RuntimeException(e);
         }
 

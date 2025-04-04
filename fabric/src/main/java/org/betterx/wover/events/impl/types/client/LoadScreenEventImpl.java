@@ -1,6 +1,6 @@
 package org.betterx.wover.events.impl.types.client;
 
-import org.betterx.wover.entrypoint.LibWoverEvents;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.events.api.types.client.BeforeClientLoadScreen;
 import org.betterx.wover.events.impl.AbstractEvent;
 
@@ -15,7 +15,7 @@ public class LoadScreenEventImpl extends AbstractEvent<BeforeClientLoadScreen> {
             LevelStorageSource.LevelStorageAccess levelAccess,
             BeforeClientLoadScreen.ContinueWith finalCall
     ) {
-        LibWoverEvents.C.LOG.debug("Emitting event: " + eventName);
+        WoverFabric.C_EVENTS.LOG.debug("Emitting event: " + eventName);
 
         BeforeClientLoadScreen.ContinueWith firstCall = finalCall;
         for (int i = handlers.size() - 1; i >= 0; i--) {

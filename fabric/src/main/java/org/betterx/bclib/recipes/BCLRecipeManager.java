@@ -1,6 +1,6 @@
 package org.betterx.bclib.recipes;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.wover.config.api.DatapackConfigs;
 
 import net.minecraft.core.Registry;
@@ -24,7 +24,7 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 
 public class BCLRecipeManager {
-    public static final ResourceLocation RECIPES_CONFIG_FILE = BCLib.C.id("recipes.json");
+    public static final ResourceLocation RECIPES_CONFIG_FILE = BCLibFabric.C.id("recipes.json");
 
     public static <C extends RecipeInput, S extends RecipeSerializer<T>, T extends Recipe<C>> S registerSerializer(
             String modID,
@@ -77,7 +77,7 @@ public class BCLRecipeManager {
                 .runForResource(manager, RECIPES_CONFIG_FILE, BCLRecipeManager::processRecipeConfig);
 
         for (ResourceLocation id : disabledRecipes) {
-            BCLib.LOGGER.verbose("Disabling Recipe: {}", id);
+            BCLibFabric.LOGGER.verbose("Disabling Recipe: {}", id);
 
             map.remove(id);
         }

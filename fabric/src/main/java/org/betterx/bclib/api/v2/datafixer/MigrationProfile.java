@@ -1,7 +1,7 @@
 package org.betterx.bclib.api.v2.datafixer;
 
 import de.ambertation.wunderlib.utils.Version;
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.interfaces.PatchBiFunction;
 import org.betterx.bclib.interfaces.PatchFunction;
 import org.betterx.wover.core.api.ModCore;
@@ -80,7 +80,7 @@ public class MigrationProfile {
      * available in Developer-Mode
      */
     public static void fixCustomFolder(File dir) {
-        if (!BCLib.isDevEnvironment()) return;
+        if (!BCLibFabric.isDevEnvironment()) return;
         MigrationProfile profile = Patch.createMigrationData();
         List<File> nbts = getAllNbts(dir, null);
         nbts.parallelStream().forEach((file) -> {
@@ -202,9 +202,9 @@ public class MigrationProfile {
 
     final public void runPrePatches(File levelBaseDir) {
         if (didRunPrePatch) {
-            BCLib.LOGGER.warn("Already did run PrePatches for " + this.levelBaseDir + ".");
+            BCLibFabric.LOGGER.warn("Already did run PrePatches for " + this.levelBaseDir + ".");
         }
-        BCLib.LOGGER.info("Running Pre Patchers on " + levelBaseDir);
+        BCLibFabric.LOGGER.info("Running Pre Patchers on " + levelBaseDir);
 
         this.levelBaseDir = levelBaseDir;
         this.level = null;

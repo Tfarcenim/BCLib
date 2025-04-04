@@ -1,6 +1,6 @@
 package org.betterx.bclib.integration.emi;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.recipes.AlloyingRecipe;
 import org.betterx.bclib.recipes.AlloyingRecipeInput;
 
@@ -26,7 +26,7 @@ public class EMIAlloyingRecipe extends EMIAbstractAlloyingRecipe<AlloyingRecipeI
 
     static void addAllRecipes(EmiRegistry emiRegistry, RecipeManager manager) {
         EMIPlugin.addAllRecipes(
-                emiRegistry, manager, BCLib.LOGGER,
+                emiRegistry, manager, BCLibFabric.LOGGER,
                 AlloyingRecipe.TYPE, EMIAlloyingRecipe::new
         );
     }

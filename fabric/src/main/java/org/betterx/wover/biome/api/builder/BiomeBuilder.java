@@ -4,7 +4,7 @@ import de.ambertation.wunderlib.ui.ColorHelper;
 import org.betterx.wover.biome.api.BiomeKey;
 import org.betterx.wover.biome.api.data.BiomeData;
 import org.betterx.wover.biome.impl.builder.BiomeSurfaceRuleBuilderImpl;
-import org.betterx.wover.biome.mixin.BiomeGenerationSettingsAccessor;
+import org.betterx.wover.mixin.BiomeGenerationSettingsAccessor;
 import org.betterx.wover.feature.api.placed.BasePlacedFeatureKey;
 import org.betterx.wover.feature.api.placed.PlacedFeatureManager;
 import org.betterx.wover.structure.api.StructureKey;

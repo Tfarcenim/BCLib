@@ -1,6 +1,6 @@
 package org.betterx.bclib.integration;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.wover.core.api.ModCore;
 import org.betterx.wover.tag.api.TagManager;
 
@@ -80,8 +80,8 @@ public abstract class ModIntegration {
         try {
             cl = Class.forName(path);
         } catch (ClassNotFoundException e) {
-            BCLib.LOGGER.error(e.getMessage());
-            if (BCLib.isDevEnvironment()) {
+            BCLibFabric.LOGGER.error(e.getMessage());
+            if (BCLibFabric.isDevEnvironment()) {
                 e.printStackTrace();
             }
         }
@@ -122,8 +122,8 @@ public abstract class ModIntegration {
             try {
                 return cl.getMethod(functionName, args);
             } catch (NoSuchMethodException | SecurityException e) {
-                BCLib.LOGGER.error(e.getMessage());
-                if (BCLib.isDevEnvironment()) {
+                BCLibFabric.LOGGER.error(e.getMessage());
+                if (BCLibFabric.isDevEnvironment()) {
                     e.printStackTrace();
                 }
             }
@@ -136,8 +136,8 @@ public abstract class ModIntegration {
             try {
                 return method.invoke(instance, args);
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-                BCLib.LOGGER.error(e.getMessage());
-                if (BCLib.isDevEnvironment()) {
+                BCLibFabric.LOGGER.error(e.getMessage());
+                if (BCLibFabric.isDevEnvironment()) {
                     e.printStackTrace();
                 }
             }
@@ -183,8 +183,8 @@ public abstract class ModIntegration {
                         return constructor.newInstance(args);
                     } catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
                              InvocationTargetException e) {
-                        BCLib.LOGGER.error(e.getMessage());
-                        if (BCLib.isDevEnvironment()) {
+                        BCLibFabric.LOGGER.error(e.getMessage());
+                        if (BCLibFabric.isDevEnvironment()) {
                             e.printStackTrace();
                         }
                     }

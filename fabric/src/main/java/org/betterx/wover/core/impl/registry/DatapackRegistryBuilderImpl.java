@@ -1,8 +1,8 @@
 package org.betterx.wover.core.impl.registry;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.registry.DatapackRegistryBuilder;
 import org.betterx.wover.core.api.registry.DatapackRegistryEntrypoint;
-import org.betterx.wover.entrypoint.LibWoverCore;
 import org.betterx.wover.util.PriorityLinkedList;
 
 import com.mojang.serialization.Codec;
@@ -63,7 +63,7 @@ public class DatapackRegistryBuilderImpl {
             Consumer<BootstrapContext<T>> bootstrap,
             int priority
     ) {
-        LibWoverCore.C.log.debug("Adding dynamic registry bootstrap: " + key.location());
+        WoverFabric.C_CORE.log.debug("Adding dynamic registry bootstrap: " + key.location());
         REGISTRIES.add(new Entry<>(key, null, bootstrap), Math.max(MAX_READONLY_PRIORITY + 1, priority));
     }
 
@@ -100,7 +100,7 @@ public class DatapackRegistryBuilderImpl {
             throw new IllegalStateException("Registry with id " + key.location() + " was already registered!");
         }
 
-        LibWoverCore.C.log.debug("Adding dynamic registry: " + key.location());
+        WoverFabric.C_CORE.log.debug("Adding dynamic registry: " + key.location());
         REGISTRIES.add(new Entry<>(key, elementCodec, bootstrap), priority);
     }
 
@@ -118,10 +118,10 @@ public class DatapackRegistryBuilderImpl {
             return;
         }
         didInitEntrypoints = true;
-        LibWoverCore.C.LOG.verbose("Processing wover.datapack.registry Entrypoints");
+        WoverFabric.C_CORE.LOG.verbose("Processing wover.datapack.registry Entrypoints");
         FabricLoader.getInstance().getEntrypoints("wover.datapack.registry", DatapackRegistryEntrypoint.class)
                     .forEach(entrypoint -> {
-                        LibWoverCore.C.LOG.verbose("    - Processing Entrypoint: {}", entrypoint.getClass().getName());
+                        WoverFabric.C_CORE.LOG.verbose("    - Processing Entrypoint: {}", entrypoint.getClass().getName());
                         entrypoint.registerDatapackRegistries();
                     });
     }
@@ -133,10 +133,10 @@ public class DatapackRegistryBuilderImpl {
             WritableRegistry<E> writableRegistry
     ) {
         initEntrypoints();
-        LibWoverCore.C.LOG.debug("Bootstrapping registry {}", resourceKey.location());
+        WoverFabric.C_CORE.LOG.debug("Bootstrapping registry {}", resourceKey.location());
         REGISTRIES.forEach(entry -> {
             if (entry.key.equals(resourceKey)) {
-                LibWoverCore.C.LOG.debug("Calling custom Registry Bootstrap on {}", resourceKey.location());
+                WoverFabric.C_CORE.LOG.debug("Calling custom Registry Bootstrap on {}", resourceKey.location());
                 entry.bootstrap.accept(entry.getContext(registryInfoLookup, (WritableRegistry) writableRegistry));
             }
         });
@@ -149,7 +149,7 @@ public class DatapackRegistryBuilderImpl {
     public static void bootstrap(
             BiConsumer<ResourceKey<? extends Registry<?>>, RegistrySetBuilder.RegistryBootstrap<? extends Object>> consumer
     ) {
-        LibWoverCore.C.LOG.verboseWarning("DID NOT bootstrap VanillaRegistries.");
+        WoverFabric.C_CORE.LOG.verboseWarning("DID NOT bootstrap VanillaRegistries.");
 //        initEntrypoints();
 //        LibWoverCore.C.LOG.debug("Bootstrapping vanilla registries");
 //        REGISTRIES.forEach(entry -> {

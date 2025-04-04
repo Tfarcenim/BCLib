@@ -1,6 +1,6 @@
 package org.betterx.wover.surface.impl.rules;
 
-import org.betterx.wover.entrypoint.LibWoverSurface;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.legacy.api.LegacyHelper;
 import org.betterx.wover.surface.api.rules.MaterialRuleManager;
 
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MaterialRuleRegistryImpl {
     public static ResourceKey<MapCodec<? extends SurfaceRules.RuleSource>> SWITCH_RULE
-            = MaterialRuleManager.createKey(LibWoverSurface.C.id("switch_rule"));
+            = MaterialRuleManager.createKey(WoverFabric.C_SURFACE.id("switch_rule"));
 
     public static ResourceKey<MapCodec<? extends SurfaceRules.RuleSource>> register(
             ResourceKey<MapCodec<? extends SurfaceRules.RuleSource>> key,

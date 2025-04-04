@@ -1,6 +1,6 @@
 package org.betterx.wover.feature.impl.placed.modifiers;
 
-import org.betterx.wover.entrypoint.LibWoverFeature;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.feature.api.placed.modifiers.*;
 import org.betterx.wover.legacy.api.LegacyHelper;
 
@@ -91,12 +91,12 @@ public class PlacementModifiersImpl {
             String path,
             MapCodec<P> codec
     ) {
-        var id = LibWoverFeature.C.id(path);
+        var id = WoverFabric.C_FEATURE.id(path);
         return register(id, codec, true);
     }
 
     private static <P extends PlacementModifier> PlacementModifierType<P> register(String path, MapCodec<P> codec) {
-        var id = LibWoverFeature.C.id(path);
+        var id = WoverFabric.C_FEATURE.id(path);
         return register(id, codec, false);
     }
 

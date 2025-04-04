@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.dataexchange;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
@@ -187,7 +187,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
                 CustomPacketPayload payload,
                 PacketSender responseSender
         ) {
-            BCLib.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
+            BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
         }
 
         @Override
@@ -209,12 +209,12 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
 
         @Override
         void sendToClient(MinecraftServer server) {
-            BCLib.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
+            BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
         }
 
         @Override
         void sendToClient(MinecraftServer server, ServerPlayer player) {
-            BCLib.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
+            BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
         }
 
         @Environment(EnvType.CLIENT)
@@ -291,7 +291,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
                 PacketSender responseSender
         ) {
             super.receiveFromClient(server, player, handler, payload, responseSender);
-            BCLib.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the server!");
+            BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the server!");
         }
 
         public void receiveFromMemory(T payload) {
@@ -318,7 +318,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
         @Environment(EnvType.CLIENT)
         @Override
         final void sendToServer(Minecraft client) {
-            BCLib.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the server!");
+            BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the server!");
         }
     }
 }

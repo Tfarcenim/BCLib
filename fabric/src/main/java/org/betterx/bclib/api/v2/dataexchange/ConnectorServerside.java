@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.dataexchange;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.api.v2.dataexchange.handler.DataExchange;
 
 import net.minecraft.server.MinecraftServer;
@@ -27,7 +27,7 @@ public class ConnectorServerside extends Connector {
 
     public void onPlayInit(ServerGamePacketListenerImpl handler, MinecraftServer server) {
         if (this.server != null && this.server != server) {
-            BCLib.LOGGER.warn("Server changed!");
+            BCLibFabric.LOGGER.warn("Server changed!");
         }
         this.server = server;
         for (DataHandlerDescriptor<?> desc : getDescriptors()) {

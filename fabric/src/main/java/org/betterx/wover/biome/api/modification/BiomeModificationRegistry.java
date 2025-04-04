@@ -1,8 +1,8 @@
 package org.betterx.wover.biome.api.modification;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.impl.modification.BiomeModificationRegistryImpl;
 import org.betterx.wover.core.api.registry.DatapackRegistryBuilder;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 import org.betterx.wover.events.api.Event;
 import org.betterx.wover.events.api.types.OnBootstrapRegistry;
 
@@ -27,7 +27,7 @@ public class BiomeModificationRegistry {
      * The key for the Biome Modification Registry.
      */
     public static final ResourceKey<Registry<BiomeModification>> BIOME_MODIFICATION_REGISTRY =
-            DatapackRegistryBuilder.createRegistryKey(LibWoverBiome.C.id("wover/worldgen/biome_modifications"));
+            DatapackRegistryBuilder.createRegistryKey(WoverFabric.C_BIOME.id("wover/worldgen/biome_modifications"));
 
     /**
      * Creates a  Key for a Biome Modification.

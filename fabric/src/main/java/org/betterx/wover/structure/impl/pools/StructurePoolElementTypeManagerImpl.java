@@ -1,6 +1,6 @@
 package org.betterx.wover.structure.impl.pools;
 
-import org.betterx.wover.entrypoint.LibWoverStructure;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.legacy.api.LegacyHelper;
 
 import com.mojang.serialization.MapCodec;
@@ -14,7 +14,7 @@ import org.jetbrains.annotations.ApiStatus;
 
 public class StructurePoolElementTypeManagerImpl {
     public static final StructurePoolElementType<SingleEndPoolElement> END = registerLegacy(
-            LibWoverStructure.C.id("single_end_pool_element"), SingleEndPoolElement.CODEC);
+            WoverFabric.C_STRUCTURE.id("single_end_pool_element"), SingleEndPoolElement.CODEC);
 
 
     public static <P extends StructurePoolElement> StructurePoolElementType<P> register(

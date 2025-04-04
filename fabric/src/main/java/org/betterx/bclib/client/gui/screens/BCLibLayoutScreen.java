@@ -1,7 +1,7 @@
 package org.betterx.bclib.client.gui.screens;
 
 import de.ambertation.wunderlib.ui.vanilla.LayoutScreenWithIcon;
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -10,8 +10,8 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class BCLibLayoutScreen extends LayoutScreenWithIcon {
-    static final ResourceLocation BCLIB_LOGO_LOCATION = ResourceLocation.fromNamespaceAndPath(BCLib.MOD_ID, "icon.png");
-    static final ResourceLocation BCLIB_LOGO_WHITE_LOCATION = ResourceLocation.fromNamespaceAndPath(BCLib.MOD_ID, "icon_bright.png");
+    static final ResourceLocation BCLIB_LOGO_LOCATION = ResourceLocation.fromNamespaceAndPath(BCLibFabric.MOD_ID, "icon.png");
+    static final ResourceLocation BCLIB_LOGO_WHITE_LOCATION = ResourceLocation.fromNamespaceAndPath(BCLibFabric.MOD_ID, "icon_bright.png");
 
     public BCLibLayoutScreen(
             Component component

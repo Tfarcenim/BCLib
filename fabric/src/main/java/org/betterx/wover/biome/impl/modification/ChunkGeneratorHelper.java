@@ -1,7 +1,7 @@
 package org.betterx.wover.biome.impl.modification;
 
-import org.betterx.wover.biome.mixin.ChunkGeneratorAccessor;
-import org.betterx.wover.entrypoint.LibWoverBiome;
+import org.betterx.wover.WoverFabric;
+import org.betterx.wover.mixin.ChunkGeneratorAccessor;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
@@ -29,18 +29,18 @@ public class ChunkGeneratorHelper {
                     );
                 } catch (IllegalStateException e) {
                     var message = e.getMessage();
-                    LibWoverBiome.C.LOG.error("Failed to rebuild features per step", e);
+                    WoverFabric.C_BIOME.LOG.error("Failed to rebuild features per step", e);
                     for (Holder<Biome> biome : biomeSource.possibleBiomes()) {
                         var loc = biome.unwrapKey().orElseThrow().location().toString();
                         if (!message.contains(loc)) continue;
                         var res = biome.value().getGenerationSettings();
-                        LibWoverBiome.C.LOG.verbose(loc);
+                        WoverFabric.C_BIOME.LOG.verbose(loc);
                         int ct = 0;
                         for (var feature : res.features()) {
-                            LibWoverBiome.C.LOG.verbose("  -------" + ct + "-------");
+                            WoverFabric.C_BIOME.LOG.verbose("  -------" + ct + "-------");
                             ct++;
                             for (int i = 0; i < feature.size(); i++) {
-                                LibWoverBiome.C.LOG.verbose("    + " + feature
+                                WoverFabric.C_BIOME.LOG.verbose("    + " + feature
                                         .get(i)
                                         .unwrapKey()
                                         .orElseThrow()

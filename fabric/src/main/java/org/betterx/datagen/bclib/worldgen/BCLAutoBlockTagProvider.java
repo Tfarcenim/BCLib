@@ -1,6 +1,6 @@
 package org.betterx.datagen.bclib.worldgen;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.behaviours.interfaces.*;
 import org.betterx.bclib.interfaces.Fuel;
 import org.betterx.bclib.interfaces.tools.*;
@@ -121,13 +121,13 @@ public class BCLAutoBlockTagProvider extends WoverTagProvider.ForBlocks implemen
         if (!location.getNamespace().equals("minecraft")) {
             if (!(block instanceof HasMinableBehaviour) && block.defaultBlockState()
                                                                 .requiresCorrectToolForDrops()) {
-                BCLib.LOGGER.error("Block " + block + "(" + block.getClass() + ")" + " has no mineable behaviour!");
+                BCLibFabric.LOGGER.error("Block " + block + "(" + block.getClass() + ")" + " has no mineable behaviour!");
             }
         }
     }
 
     private static void processCommonBlockTags(TagBootstrapContext<Block> context, ModCore modCore) {
-        BCLib.C.LOG.debug("Processing Blocks for " + modCore.namespace);
+        BCLibFabric.C.LOG.debug("Processing Blocks for " + modCore.namespace);
         BlockRegistry
                 .forMod(modCore)
                 .allBlocks()

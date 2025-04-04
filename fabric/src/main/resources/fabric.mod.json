@@ -19,7 +19,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "org.betterx.bclib.BCLib"
+            "org.betterx.bclib.BCLibFabric"
         ],
         "client": [
             "org.betterx.bclib.client.BCLibClient"
@@ -39,7 +39,6 @@
     },
     "accessWidener": "bclib.accesswidener",
     "mixins": [
-        "ui.mixins.client.json",
         "${mod_id}.mixins.json",
         "${mod_id}.fabric.mixins.json"
     ],

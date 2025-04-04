@@ -1,9 +1,9 @@
 package org.betterx.wover.datagen.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.ModCore;
 import org.betterx.wover.datagen.api.WoverAutoProvider;
 import org.betterx.wover.datagen.api.WoverDataProvider;
-import org.betterx.wover.entrypoint.LibWoverDatagen;
 
 import net.minecraft.data.DataProvider;
 
@@ -47,7 +47,7 @@ public abstract class PackBuilderImpl {
             WoverDataProvider<T> provider
     ) {
         if (provider == null) return;
-        LibWoverDatagen.C.LOG.debug("Instantiating auto provider: {}", provider.getClass().getName());
+        WoverFabric.C_DATAGEN.LOG.debug("Instantiating auto provider: {}", provider.getClass().getName());
         if (provider instanceof WoverAutoProvider.WithRedirect) {
             redirectors.add((WoverAutoProvider.WithRedirect) provider);
             providerFactories.add(provider);

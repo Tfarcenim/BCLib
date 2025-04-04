@@ -1,6 +1,6 @@
 package org.betterx.wover.surface.impl.numeric;
 
-import org.betterx.wover.entrypoint.LibWoverSurface;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.legacy.api.LegacyHelper;
 import org.betterx.wover.surface.api.noise.NumericProvider;
 import org.betterx.wover.surface.api.noise.NumericProviderRegistry;
@@ -13,9 +13,9 @@ import org.jetbrains.annotations.ApiStatus;
 public class NumericProviderRegistryImpl {
 
     public static final ResourceKey<MapCodec<? extends NumericProvider>> RANDOM_INT
-            = NumericProviderRegistry.createKey(LibWoverSurface.C.id("rnd_int"));
+            = NumericProviderRegistry.createKey(WoverFabric.C_SURFACE.id("rnd_int"));
     public static final ResourceKey<MapCodec<? extends NumericProvider>> NETHER_NOISE
-            = NumericProviderRegistry.createKey(LibWoverSurface.C.id("nether_noise"));
+            = NumericProviderRegistry.createKey(WoverFabric.C_SURFACE.id("nether_noise"));
 
     public static void registerWithBCLib(
             ResourceKey<MapCodec<? extends NumericProvider>> key,

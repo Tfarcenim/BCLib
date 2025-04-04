@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.dataexchange;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.api.v2.dataexchange.handler.DataExchange;
 
 import net.minecraft.client.Minecraft;
@@ -32,7 +32,7 @@ public class ConnectorClientside extends Connector {
 
     public void onPlayInit(ClientPacketListener handler, Minecraft client) {
         if (this.client != null && this.client != client) {
-            BCLib.LOGGER.warn("Client changed!");
+            BCLibFabric.LOGGER.warn("Client changed!");
         }
         this.client = client;
         for (DataHandlerDescriptor<?> desc : getDescriptors()) {

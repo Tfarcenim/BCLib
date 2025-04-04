@@ -1,10 +1,9 @@
 package org.betterx.wover.biome.api.modification.predicates;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.impl.modification.predicates.BiomePredicateRegistryImpl;
 import org.betterx.wover.core.api.registry.DatapackRegistryBuilder;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -19,7 +18,7 @@ public class BiomePredicateRegistry {
      * The Key of the Registry. ({@code wover/biome_predicates})
      */
     public static final ResourceKey<Registry<MapCodec<? extends BiomePredicate>>> BIOME_PREDICATE_REGISTRY =
-            DatapackRegistryBuilder.createRegistryKey(LibWoverBiome.C.id("wover/biome_predicates"));
+            DatapackRegistryBuilder.createRegistryKey(WoverFabric.C_BIOME.id("wover/biome_predicates"));
 
     /**
      * The Registry itself.

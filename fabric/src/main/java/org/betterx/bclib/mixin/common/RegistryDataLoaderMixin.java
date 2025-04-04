@@ -35,7 +35,7 @@ public class RegistryDataLoaderMixin {
 //    // We do not want this for our BCL-Biome/Surface Rule Registry, so we remove the prefix here.
 //    @Inject(method = "registryDirPath", at = @At("RETURN"), cancellable = true)
 //    private static void bcl_prependDirectoryWithNamespace(ResourceLocation id, CallbackInfoReturnable<String> info) {
-//        if (id.getNamespace().equals(WorldsTogether.MOD_ID) || id.getNamespace().equals(BCLib.MOD_ID)) {
+//        if (id.getNamespace().equals(WorldsTogether.MOD_ID) || id.getNamespace().equals(BCLibFabric.MOD_ID)) {
 //            info.setReturnValue(info.getReturnValue());
 //        }
 //    }

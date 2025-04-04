@@ -4,7 +4,7 @@ import de.ambertation.wunderlib.ui.ColorHelper;
 import de.ambertation.wunderlib.ui.layout.components.*;
 import de.ambertation.wunderlib.ui.layout.values.Size;
 import de.ambertation.wunderlib.ui.vanilla.LayoutScreen;
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -102,7 +102,7 @@ public class TestScreen extends LayoutScreen {
         rows.addSpacer(16);
         rows.add(new Image(
                         fixed(24), fixed(24),
-                        BCLib.makeID("icon.png"),
+                        BCLibFabric.makeID("icon.png"),
                         new Size(512, 512)
                 ).centerHorizontal()
         );

@@ -1,6 +1,6 @@
 package org.betterx.bclib.interfaces;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.client.models.ModelsHelper;
 import org.betterx.bclib.client.models.PatternsHelper;
 
@@ -68,7 +68,7 @@ public interface RuntimeBlockModelProvider extends ItemModelProvider {
                 model.name = modelId.toString();
                 modelCache.put(modelId.id(), model);
             } else {
-                BCLib.LOGGER.warn("Error loading model: {}", modelId);
+                BCLibFabric.LOGGER.warn("Error loading model: {}", modelId);
             }
         }
     }

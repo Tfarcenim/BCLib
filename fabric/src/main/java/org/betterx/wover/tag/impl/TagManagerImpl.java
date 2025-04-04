@@ -1,6 +1,6 @@
 package org.betterx.wover.tag.impl;
 
-import org.betterx.wover.entrypoint.LibWoverTag;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.state.api.WorldState;
 import org.betterx.wover.tag.api.TagRegistry;
 import org.betterx.wover.tag.api.event.context.ItemTagBootstrapContext;
@@ -114,7 +114,7 @@ public class TagManagerImpl {
                 );
 
                 entries.forEach(wrapper -> {
-                    builder.add(new TagLoader.EntryWithSource(wrapper.createTagEntry(), LibWoverTag.C.namespace));
+                    builder.add(new TagLoader.EntryWithSource(wrapper.createTagEntry(), WoverFabric.C_TAG.namespace));
                 });
             });
         }
@@ -122,7 +122,7 @@ public class TagManagerImpl {
         return tagsMap;
     }
 
-    final static private ResourceLocation NO_TAG = LibWoverTag.C.mk("no_tag");
+    final static private ResourceLocation NO_TAG = WoverFabric.C_TAG.mk("no_tag");
 
     public static <T> StreamCodec<RegistryFriendlyByteBuf, TagKey<T>> streamCodec(ResourceKey<Registry<T>> registry) {
         return new StreamCodec<RegistryFriendlyByteBuf, TagKey<T>>() {

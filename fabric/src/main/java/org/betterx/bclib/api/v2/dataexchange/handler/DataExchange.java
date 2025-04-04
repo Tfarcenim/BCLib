@@ -69,7 +69,7 @@ abstract public class DataExchange {
     /**
      * Initializes all datastructures that need to exist in the client component.
      * <p>
-     * This is automatically called by BCLib. You can register {@link DataHandler}-Objects before this Method is called
+     * This is automatically called by BCLibFabric. You can register {@link DataHandler}-Objects before this Method is called
      */
     @Environment(EnvType.CLIENT)
     public static void prepareClientside() {
@@ -81,7 +81,7 @@ abstract public class DataExchange {
     /**
      * Initializes all datastructures that need to exist in the server component.
      * <p>
-     * This is automatically called by BCLib. You can register {@link DataHandler}-Objects before this Method is called
+     * This is automatically called by BCLibFabric. You can register {@link DataHandler}-Objects before this Method is called
      */
     public static void prepareServerside() {
         DataExchange api = DataExchange.getInstance();
@@ -92,7 +92,7 @@ abstract public class DataExchange {
     /**
      * Automatically called before the player enters the world.
      * <p>
-     * This is automatically called by BCLib. It will send all {@link DataHandler}-Objects that have {@link DataHandlerDescriptor#sendBeforeEnter} set to*
+     * This is automatically called by BCLibFabric. It will send all {@link DataHandler}-Objects that have {@link DataHandlerDescriptor#sendBeforeEnter} set to*
      * {@code true},
      */
     @Environment(EnvType.CLIENT)

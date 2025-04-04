@@ -1,6 +1,6 @@
 package org.betterx.bclib.util;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -17,6 +17,7 @@ import com.google.gson.JsonObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+
 import org.jetbrains.annotations.Nullable;
 
 public class JsonFactory {
@@ -32,7 +33,7 @@ public class JsonFactory {
                 return jsonObject != null ? jsonObject : new JsonObject();
             }
         } catch (Exception ex) {
-            BCLib.LOGGER.error("", ex);
+            BCLibFabric.LOGGER.error("", ex);
         }
         return new JsonObject();
     }
@@ -79,7 +80,7 @@ public class JsonFactory {
             try (Reader reader = new FileReader(jsonFile, StandardCharsets.UTF_8)) {
                 return loadJson(reader);
             } catch (Exception ex) {
-                BCLib.LOGGER.warn("", ex);
+                BCLibFabric.LOGGER.warn("", ex);
             }
         }
         return null;
@@ -95,7 +96,7 @@ public class JsonFactory {
             writer.write(json);
             writer.flush();
         } catch (IOException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
     }
 
@@ -105,7 +106,7 @@ public class JsonFactory {
         try {
             writer.flush();
         } catch (IOException e) {
-            BCLib.LOGGER.error(e.getMessage());
+            BCLibFabric.LOGGER.error(e.getMessage());
             e.printStackTrace();
         }
     }

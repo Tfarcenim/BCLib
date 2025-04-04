@@ -1,10 +1,10 @@
 package org.betterx.bclib.config;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.jetbrains.annotations.Nullable;
 
 public abstract class Config {
@@ -27,7 +27,7 @@ public abstract class Config {
 
     public void reload() {
         this.keeper.reload();
-        BCLib.LOGGER.info("Did Reload " + keeper.getConfigFile());
+        BCLibFabric.LOGGER.info("Did Reload " + keeper.getConfigFile());
     }
 
     @Nullable
@@ -62,7 +62,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }
@@ -88,7 +88,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }
@@ -104,7 +104,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException | ClassCastException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }
@@ -130,7 +130,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }
@@ -157,7 +157,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }
@@ -186,7 +186,7 @@ public abstract class Config {
             entry.setValue(value);
             return true;
         } catch (NullPointerException ex) {
-            BCLib.LOGGER.warn("", ex);
+            BCLibFabric.LOGGER.warn("", ex);
         }
         return false;
     }

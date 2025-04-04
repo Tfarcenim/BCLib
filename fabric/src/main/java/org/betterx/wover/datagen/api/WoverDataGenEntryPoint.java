@@ -1,8 +1,8 @@
 package org.betterx.wover.datagen.api;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.ModCore;
 import org.betterx.wover.datagen.impl.WoverDataGenEntryPointImpl;
-import org.betterx.wover.entrypoint.LibWoverDatagen;
 
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.DataProvider;
@@ -194,7 +194,7 @@ public abstract class WoverDataGenEntryPoint implements DataGeneratorEntrypoint 
     private void initialize() {
         synchronized (this) {
             if (builders == null) {
-                LibWoverDatagen.C.LOG.debug("Initializing WoverDataGenEntryPoint:" +
+                WoverFabric.C_DATAGEN.LOG.debug("Initializing WoverDataGenEntryPoint:" +
                         this.getClass().getName() + " for " + modCore());
                 this.builders = new LinkedList<>();
                 this.globalBuilder = addDatapack(null);
@@ -240,7 +240,7 @@ public abstract class WoverDataGenEntryPoint implements DataGeneratorEntrypoint 
     @Override
     public final void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         if (ignoreRun()) {
-            LibWoverDatagen.C.LOG.debug("Ignoring run for " + this);
+            WoverFabric.C_DATAGEN.LOG.debug("Ignoring run for " + this);
             return;
         }
         initialize();
@@ -344,7 +344,7 @@ public abstract class WoverDataGenEntryPoint implements DataGeneratorEntrypoint 
     public static boolean runsForMod(ModCore modCore) {
         final String target = targetModID();
 
-        if (!modCore.namespace.equals(LibWoverDatagen.C.namespace)) {
+        if (!modCore.namespace.equals(WoverFabric.C_DATAGEN.namespace)) {
             if (target == null || target.isEmpty()) return true;
         }
 

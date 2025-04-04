@@ -1,10 +1,10 @@
 package org.betterx.wover.datagen.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.ModCore;
 import org.betterx.wover.datagen.api.WoverAutoProvider;
 import org.betterx.wover.datagen.api.WoverDataProvider;
 import org.betterx.wover.datagen.api.WoverTagProvider;
-import org.betterx.wover.entrypoint.LibWoverTag;
 import org.betterx.wover.tag.api.BlockTagDataProvider;
 import org.betterx.wover.tag.api.event.context.TagBootstrapContext;
 
@@ -35,7 +35,7 @@ public class AutoBlockTagProvider extends WoverTagProvider.ForBlocks implements 
     @Override
     public void prepareTags(TagBootstrapContext<Block> provider) {
         redirects.forEach(redirect -> {
-            LibWoverTag.C.LOG.debug(
+            WoverFabric.C_TAG.LOG.debug(
                     "   {} includes {} for {}",
                     this.getClass().getSimpleName(),
                     redirect.getClass().getSimpleName(),
@@ -64,7 +64,7 @@ public class AutoBlockTagProvider extends WoverTagProvider.ForBlocks implements 
     public @Nullable <T extends DataProvider> WoverDataProvider<T> redirect(@Nullable WoverDataProvider<T> provider) {
         if (provider instanceof WoverTagProvider<?, ?> tagProvider) {
             if (tagProvider.tagRegistry == this.tagRegistry && tagProvider.modCore.equals(this.modCore)) {
-                LibWoverTag.C.LOG.debug("Redirecting {}  to {} ({})",
+                WoverFabric.C_TAG.LOG.debug("Redirecting {}  to {} ({})",
                         tagProvider.getClass().getName(),
                         this.getClass().getName(), this.modIDs
                 );

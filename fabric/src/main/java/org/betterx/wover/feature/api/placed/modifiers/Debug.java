@@ -1,7 +1,7 @@
 package org.betterx.wover.feature.api.placed.modifiers;
 
 
-import org.betterx.wover.entrypoint.LibWoverFeature;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.feature.impl.placed.modifiers.PlacementModifiersImpl;
 
 import com.mojang.serialization.Codec;
@@ -62,7 +62,7 @@ public class Debug extends PlacementModifier {
             RandomSource randomSource,
             BlockPos blockPos
     ) {
-        LibWoverFeature.C.log.info(caption, blockPos);
+        WoverFabric.C_FEATURE.log.info(caption, blockPos);
         return Stream.of(blockPos);
     }
 

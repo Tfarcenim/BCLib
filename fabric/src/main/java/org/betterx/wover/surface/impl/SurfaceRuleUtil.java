@@ -1,8 +1,8 @@
 package org.betterx.wover.surface.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.common.surface.api.InjectableSurfaceRules;
 import org.betterx.wover.common.surface.api.SurfaceRuleProvider;
-import org.betterx.wover.entrypoint.LibWoverSurface;
 import org.betterx.wover.state.api.WorldState;
 import org.betterx.wover.surface.api.AssignedSurfaceRule;
 import org.betterx.wover.surface.api.SurfaceRuleRegistry;
@@ -39,7 +39,7 @@ public class SurfaceRuleUtil {
                                  .registry(SurfaceRuleRegistry.SURFACE_RULES_REGISTRY).orElse(null);
 
         if (registry == null) {
-            LibWoverSurface.C.LOG.warn("No Surface Rule Registry found. Skipping Surface Rule Injection for Biome {}", biomeKey.location());
+            WoverFabric.C_SURFACE.LOG.warn("No Surface Rule Registry found. Skipping Surface Rule Injection for Biome {}", biomeKey.location());
             return List.of();
         }
 
@@ -103,7 +103,7 @@ public class SurfaceRuleUtil {
                 additionalRules.add(org);
         }
 
-        LibWoverSurface.C.LOG.verbose(
+        WoverFabric.C_SURFACE.LOG.verbose(
                 "Merged {} additional Surface Rules for Dimension {} => {} ({}) using {}",
                 count,
                 dimensionKey.location(),

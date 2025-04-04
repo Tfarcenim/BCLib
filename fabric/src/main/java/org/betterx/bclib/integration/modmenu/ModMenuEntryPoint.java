@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 /**
  * Internal class to hook into ModMenu, you should not need to use this class. If you want to register a
- * ModMenu Screen for a Mod using BCLib, use {@link ModMenu#addModMenuScreen(String, Function)}
+ * ModMenu Screen for a Mod using BCLibFabric, use {@link ModMenu#addModMenuScreen(String, Function)}
  */
 public class ModMenuEntryPoint implements ModMenuApi {
     @Override

@@ -1,7 +1,7 @@
 package org.betterx.wover.structure.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.registry.DatapackRegistryBuilder;
-import org.betterx.wover.entrypoint.LibWoverStructure;
 import org.betterx.wover.events.api.types.OnBootstrapRegistry;
 import org.betterx.wover.events.impl.EventImpl;
 import org.betterx.wover.legacy.api.LegacyHelper;
@@ -30,12 +30,12 @@ public class StructureManagerImpl {
             new EventImpl<>("BOOTSTRAP_STRUCTURES");
 
     public static final StructureType<RandomNbtStructure> RANDOM_NBT_STRUCTURE_TYPE = registerType(
-            LibWoverStructure.C.id("random_nbt_structure"),
+            WoverFabric.C_STRUCTURE.id("random_nbt_structure"),
             RandomNbtStructure.simpleRandomCodec(RandomNbtStructure::new)
     );
 
     public static final StructurePieceType RANDOM_NBT_STRUCTURE_PIECE = registerPiece(
-            LibWoverStructure.C.id("random_nbt_structure_piece"),
+            WoverFabric.C_STRUCTURE.id("random_nbt_structure_piece"),
             RandomNbtStructurePiece::new
     );
 

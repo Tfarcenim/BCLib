@@ -1,6 +1,6 @@
 package org.betterx.bclib.client.models;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.furniture.block.BaseChair;
 import org.betterx.wover.block.api.model.WoverBlockModelGenerators;
 
@@ -28,14 +28,14 @@ public class BCLModels {
     public static final TextureSlot GLASS = TextureSlot.create("glass");
     public static final TextureSlot PANEL = TextureSlot.create("panel");
 
-    public static final ResourceLocation BAR_STOOL_MODEL_LOCATION = BCLib.C.mk("block/bar_stool");
+    public static final ResourceLocation BAR_STOOL_MODEL_LOCATION = BCLibFabric.C.mk("block/bar_stool");
     public static final ModelTemplate BAR_STOOL = new ModelTemplate(
             Optional.of(BAR_STOOL_MODEL_LOCATION),
             Optional.empty(),
             TextureSlot.TEXTURE, CLOTH
     );
 
-    public static final ResourceLocation CHAIR_MODEL_LOCATION = BCLib.C.mk("block/chair");
+    public static final ResourceLocation CHAIR_MODEL_LOCATION = BCLibFabric.C.mk("block/chair");
     public static final ModelTemplate CHAIR = new ModelTemplate(
             Optional.of(CHAIR_MODEL_LOCATION),
             Optional.empty(),
@@ -48,28 +48,28 @@ public class BCLModels {
             TextureSlot.PARTICLE
     );
 
-    public static final ResourceLocation TABURET_MODEL_LOCATION = BCLib.C.mk("block/taburet");
+    public static final ResourceLocation TABURET_MODEL_LOCATION = BCLibFabric.C.mk("block/taburet");
     public static final ModelTemplate TABURET = new ModelTemplate(
             Optional.of(TABURET_MODEL_LOCATION),
             Optional.empty(),
             TextureSlot.TEXTURE
     );
 
-    public static final ResourceLocation CHEST_MODEL_LOCATION = BCLib.C.mk("block/chest_item");
+    public static final ResourceLocation CHEST_MODEL_LOCATION = BCLibFabric.C.mk("block/chest_item");
     public static final ModelTemplate CHEST_ITEM = new ModelTemplate(
             Optional.of(CHEST_MODEL_LOCATION),
             Optional.empty(),
             TextureSlot.TEXTURE
     );
 
-    public static final ResourceLocation PATH_MODEL_LOCATION = BCLib.C.mk("block/path");
+    public static final ResourceLocation PATH_MODEL_LOCATION = BCLibFabric.C.mk("block/path");
     public static final ModelTemplate PATH = new ModelTemplate(
             Optional.of(PATH_MODEL_LOCATION),
             Optional.empty(),
             TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE
     );
 
-    public static final ResourceLocation LADDER_MODEL_LOCATION = BCLib.C.mk("block/ladder");
+    public static final ResourceLocation LADDER_MODEL_LOCATION = BCLibFabric.C.mk("block/ladder");
     public static final ModelTemplate LADDER = new ModelTemplate(
             Optional.of(LADDER_MODEL_LOCATION),
             Optional.empty(),
@@ -77,49 +77,49 @@ public class BCLModels {
     );
 
     public static final ModelTemplate BULB_LANTERN_FLOOR = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/bulb_lantern_floor")),
+            Optional.of(BCLibFabric.C.mk("block/bulb_lantern_floor")),
             Optional.empty(),
             GLOW, METAL
     );
 
     public static final ModelTemplate BULB_LANTERN_CEIL = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/bulb_lantern_ceil")),
+            Optional.of(BCLibFabric.C.mk("block/bulb_lantern_ceil")),
             Optional.empty(),
             GLOW, METAL
     );
 
     public static final ModelTemplate STONE_LANTERN_FLOOR = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/stone_lantern_floor")),
+            Optional.of(BCLibFabric.C.mk("block/stone_lantern_floor")),
             Optional.empty(),
             TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE, GLASS
     );
 
     public static final ModelTemplate STONE_LANTERN_CEIL = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/stone_lantern_ceil")),
+            Optional.of(BCLibFabric.C.mk("block/stone_lantern_ceil")),
             Optional.empty(),
             TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE, GLASS
     );
 
     public static final ModelTemplate CROSS_SHADED = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/cross_shaded")),
+            Optional.of(BCLibFabric.C.mk("block/cross_shaded")),
             Optional.empty(),
             TextureSlot.CROSS
     );
 
     public static final ModelTemplate ANVIL = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/anvil")),
+            Optional.of(BCLibFabric.C.mk("block/anvil")),
             Optional.empty(),
             TextureSlot.FRONT, TextureSlot.BACK, TextureSlot.TOP, TextureSlot.BOTTOM, PANEL
     );
 
     public static final ModelTemplate TRAPDOOR = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/sided_trapdoor")),
+            Optional.of(BCLibFabric.C.mk("block/sided_trapdoor")),
             Optional.empty(),
             TextureSlot.TEXTURE, TextureSlot.SIDE
     );
 
     public static final ModelTemplate FURNACE_GLOW = new ModelTemplate(
-            Optional.of(BCLib.C.mk("block/furnace_glow")),
+            Optional.of(BCLibFabric.C.mk("block/furnace_glow")),
             Optional.empty(),
             TextureSlot.TOP, TextureSlot.SIDE, TextureSlot.FRONT, GLOW
     );

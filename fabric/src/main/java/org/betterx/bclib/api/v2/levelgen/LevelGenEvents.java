@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.levelgen;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.api.v2.dataexchange.DataExchangeAPI;
 import org.betterx.bclib.api.v2.datafixer.DataFixerAPI;
 import org.betterx.wover.core.api.ModCore;
@@ -43,7 +43,7 @@ public class LevelGenEvents {
             LevelStorageSource.LevelStorageAccess storageAccess,
             BeforeClientLoadScreen.ContinueWith continueWith
     ) {
-        if (!DataFixerAPI.fixData(storageAccess, BCLib.isClient(), (b) -> continueWith.loadingScreen())) {
+        if (!DataFixerAPI.fixData(storageAccess, BCLibFabric.isClient(), (b) -> continueWith.loadingScreen())) {
             continueWith.loadingScreen();
         }
     }

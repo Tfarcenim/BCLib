@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v3.datagen;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.Holder;
@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
+
 import org.jetbrains.annotations.Nullable;
 
 public abstract class RegistrySupplier {
@@ -214,7 +215,7 @@ public abstract class RegistrySupplier {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            BCLib.LOGGER.info("Adding:" + key());
+            BCLibFabric.LOGGER.info("Adding:" + key());
             registryBuilder.add(key(), (BootstrapContext<T> ctx) -> {
                 if (registryBootstrap != null) {
                     registryBootstrap.run(ctx);

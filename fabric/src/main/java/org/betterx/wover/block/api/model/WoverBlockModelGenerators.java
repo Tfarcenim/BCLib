@@ -1,6 +1,6 @@
 package org.betterx.wover.block.api.model;
 
-import org.betterx.wover.entrypoint.LibWoverBlock;
+import org.betterx.wover.WoverFabric;
 
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.blockstates.*;
@@ -27,7 +27,7 @@ public class WoverBlockModelGenerators {
     public static final ResourceLocation CROSS = ResourceLocation.withDefaultNamespace("block/cross");
     public static final ResourceLocation CUBE = ResourceLocation.withDefaultNamespace("block/cube");
     public static final ResourceLocation CUBE_ALL = ResourceLocation.withDefaultNamespace("block/cube_all");
-    public static final ResourceLocation COMPOSTER = LibWoverBlock.C.id("block/composter");
+    public static final ResourceLocation COMPOSTER = WoverFabric.C_BLOCK.id("block/composter");
 
     public static final ModelTemplate COMPOSTER_MODEL = new ModelTemplate(Optional.of(COMPOSTER), Optional.empty(), TextureSlot.SIDE, TextureSlot.BOTTOM, TextureSlot.TOP);
     public final BlockModelGenerators vanillaGenerator;
@@ -138,7 +138,7 @@ public class WoverBlockModelGenerators {
 
     public ResourceLocation particleOnlyModel(Block block) {
         var name = ModelLocationUtils.getModelLocation(block).withSuffix("_particles");
-        if (name.getNamespace().equals("minecraft")) name = LibWoverBlock.C.mk(name.getPath());
+        if (name.getNamespace().equals("minecraft")) name = WoverFabric.C_BLOCK.mk(name.getPath());
         ResourceLocation finalName = name;
         return PARTICLE_ONLY_MODELS.computeIfAbsent(name, (n) -> ModelTemplates.PARTICLE_ONLY.create(
                 finalName,

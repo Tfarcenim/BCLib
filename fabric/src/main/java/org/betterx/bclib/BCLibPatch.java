@@ -14,7 +14,7 @@ public final class BCLibPatch {
 
 class SignPatch extends Patch {
     public SignPatch() {
-        super(BCLib.C, new Version(3, 0, 11));
+        super(BCLibFabric.C, new Version(3, 0, 11));
     }
 
     @Override

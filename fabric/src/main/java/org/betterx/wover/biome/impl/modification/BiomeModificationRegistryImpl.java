@@ -1,12 +1,12 @@
 package org.betterx.wover.biome.impl.modification;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.api.modification.BiomeModification;
 import org.betterx.wover.biome.api.modification.BiomeModificationRegistry;
 import org.betterx.wover.biome.api.modification.predicates.BiomePredicate;
 import org.betterx.wover.common.generator.api.biomesource.ReloadableBiomeSource;
 import org.betterx.wover.common.generator.api.chunkgenerator.RebuildableFeaturesPerStep;
 import org.betterx.wover.core.api.registry.DatapackRegistryBuilder;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 import org.betterx.wover.events.api.WorldLifecycle;
 import org.betterx.wover.events.api.types.OnBootstrapRegistry;
 import org.betterx.wover.events.impl.EventImpl;
@@ -73,7 +73,7 @@ public class BiomeModificationRegistryImpl {
                 .registry(BiomeModificationRegistry.BIOME_MODIFICATION_REGISTRY)
                 .orElse(null);
         if (modifications == null) {
-            LibWoverBiome.C.log.error("Biome Modification Registry is missing. Cannot apply Biome Modifications.");
+            WoverFabric.C_BIOME.log.error("Biome Modification Registry is missing. Cannot apply Biome Modifications.");
             return;
         }
         final Registry<Biome> biomes = registryAccess.registryOrThrow(Registries.BIOME);
@@ -96,7 +96,7 @@ public class BiomeModificationRegistryImpl {
         for (ResourceKey<Biome> biomeKey : keys) {
             BiomePredicate.Context context = BiomePredicate.Context.of(registryAccess, biomeKey);
             if (context == null) {
-                LibWoverBiome.C.log.warn("Failed to get biome context for {}", biomeKey.location());
+                WoverFabric.C_BIOME.log.warn("Failed to get biome context for {}", biomeKey.location());
                 continue;
             }
 
@@ -168,7 +168,7 @@ public class BiomeModificationRegistryImpl {
                 }
             });
 
-            LibWoverBiome.C.log.info(
+            WoverFabric.C_BIOME.log.info(
                     "Applied {} biome modifications and added {} tags to {} of {} biomes in {}",
                     modifiersApplied,
                     tagsAdded,

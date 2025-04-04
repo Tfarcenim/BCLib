@@ -1,7 +1,7 @@
 package org.betterx.wover.biome.api.data;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.impl.data.BiomeDataImpl;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 import org.betterx.wover.state.api.WorldState;
 
 import com.mojang.datafixers.util.*;
@@ -291,7 +291,7 @@ public class BiomeData {
         if (WorldState.registryAccess() == null) {
             if (WorldState.allStageRegistryAccess() == null) return null;
             if (preFinalAccessWarning++ < 5)
-                LibWoverBiome.C.log.verboseWarning("Accessing biome holder for " + biomeKey + " before registry is ready!");
+                WoverFabric.C_BIOME.log.verboseWarning("Accessing biome holder for " + biomeKey + " before registry is ready!");
             return WorldState.allStageRegistryAccess()
                              .registryOrThrow(Registries.BIOME)
                              .getHolder(biomeKey)
@@ -304,7 +304,7 @@ public class BiomeData {
         if (WorldState.registryAccess() == null) {
             if (WorldState.allStageRegistryAccess() == null) return null;
             if (preFinalAccessWarning++ < 5)
-                LibWoverBiome.C.log.verboseWarning("Accessing biome for " + biomeKey + " before registry is ready!");
+                WoverFabric.C_BIOME.log.verboseWarning("Accessing biome for " + biomeKey + " before registry is ready!");
             return WorldState.allStageRegistryAccess()
                              .registryOrThrow(Registries.BIOME)
                              .getOptional(biomeKey)

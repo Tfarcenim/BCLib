@@ -1,6 +1,6 @@
 package org.betterx.datagen.bclib;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.datagen.bclib.advancement.BCLAdvancementDataProvider;
 import org.betterx.datagen.bclib.worldgen.BlockTagProvider;
 import org.betterx.datagen.bclib.worldgen.BoneMealBlockTagProvider;
@@ -13,7 +13,7 @@ import net.minecraft.core.RegistrySetBuilder;
 public class BCLibDatagen extends WoverDataGenEntryPoint {
     @Override
     protected void onInitializeProviders(PackBuilder globalPack) {
-        BCLib.LOGGER.info("Bootstrap onInitializeDataGenerator");
+        BCLibFabric.LOGGER.info("Bootstrap onInitializeDataGenerator");
         globalPack.addProvider(BoneMealBlockTagProvider::new);
         globalPack.addProvider(BlockTagProvider::new);
 
@@ -26,7 +26,7 @@ public class BCLibDatagen extends WoverDataGenEntryPoint {
 
     @Override
     protected ModCore modCore() {
-        return BCLib.C;
+        return BCLibFabric.C;
     }
 
     @Override

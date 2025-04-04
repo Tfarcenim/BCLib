@@ -1,6 +1,6 @@
 package org.betterx.bclib.integration.emi;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.recipes.AnvilRecipe;
 
 import net.minecraft.client.Minecraft;
@@ -47,7 +47,7 @@ public class EMIAnvilRecipe implements EmiRecipe {
     static void addAllRecipes(EmiRegistry emiRegistry, RecipeManager manager) {
         Iterable<Holder<Item>> hammers = AnvilRecipe.getAllHammers();
         EMIPlugin.addAllRecipes(
-                emiRegistry, manager, BCLib.LOGGER,
+                emiRegistry, manager, BCLibFabric.LOGGER,
                 AnvilRecipe.TYPE,
                 recipe -> StreamSupport.stream(hammers.spliterator(), false)
                                        .map(Holder::value)

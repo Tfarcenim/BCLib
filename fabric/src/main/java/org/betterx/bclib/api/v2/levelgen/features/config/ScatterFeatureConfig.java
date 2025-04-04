@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.levelgen.features.config;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.util.BlocksHelper;
 import org.betterx.wover.block.api.BlockProperties;
 
@@ -307,7 +307,7 @@ public abstract class ScatterFeatureConfig implements FeatureConfiguration {
                 float chanceOfSpreadRadius3
         ) {
             if (this.baseState.isPresent() && this.baseReplaceChance == 0) {
-                BCLib.LOGGER.error("Base generation was already selected.");
+                BCLibFabric.LOGGER.error("Base generation was already selected.");
             }
             this.baseState = Optional.of(baseState);
             this.baseReplaceChance = baseReplaceChance;

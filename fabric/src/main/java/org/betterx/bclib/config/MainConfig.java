@@ -1,10 +1,10 @@
 package org.betterx.bclib.config;
 
 import de.ambertation.wunderlib.configs.ConfigFile;
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 public class MainConfig extends ConfigFile {
-    public final static Group PATCH_GROUP = new Group(BCLib.C.namespace, Configs.MAIN_PATCH_CATEGORY, 0);
+    public final static Group PATCH_GROUP = new Group(BCLibFabric.C.namespace, Configs.MAIN_PATCH_CATEGORY, 0);
 
     public final BooleanValue applyPatches = new BooleanValue(
             PATCH_GROUP.title(),
@@ -14,7 +14,7 @@ public class MainConfig extends ConfigFile {
 
 
     public MainConfig() {
-        super(BCLib.C, "main");
+        super(BCLibFabric.C, "main");
     }
 
     public boolean applyPatches() {

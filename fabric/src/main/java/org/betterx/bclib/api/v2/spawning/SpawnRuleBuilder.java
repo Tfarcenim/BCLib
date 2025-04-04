@@ -320,7 +320,7 @@ public class SpawnRuleBuilder<M extends Mob> {
         SpawnPredicate<M> predicate = (entityType, serverLevelAccessor, mobSpawnType, blockPos, random) -> {
             for (SpawnRuleEntry rule : rulesCopy) {
                 if (!rule.canSpawn(entityType, serverLevelAccessor, mobSpawnType, blockPos, random)) {
-//                    BCLib.LOGGER.info("Rejected Spawn of "
+//                    BCLibFabric.LOGGER.info("Rejected Spawn of "
 //                            + entityType.getDescriptionId()
 //                            + " at " + blockPos.getX() + " " + blockPos.getY() + " " + blockPos.getZ()
 //                            + " because " + rule.debugName
@@ -331,7 +331,7 @@ public class SpawnRuleBuilder<M extends Mob> {
                     return false;
                 }
             }
-//            BCLib.LOGGER.info("Spawning " + entityType.getDescriptionId() + " at " + blockPos.getX() + " " + blockPos.getY() + " " + blockPos.getZ() + "");
+//            BCLibFabric.LOGGER.info("Spawning " + entityType.getDescriptionId() + " at " + blockPos.getX() + " " + blockPos.getY() + " " + blockPos.getZ() + "");
             return true;
         };
 

@@ -1,7 +1,7 @@
 package org.betterx.wover.tag.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.core.api.ModCore;
-import org.betterx.wover.entrypoint.LibWoverTag;
 import org.betterx.wover.events.api.Event;
 import org.betterx.wover.events.impl.EventImpl;
 import org.betterx.wover.tag.api.TagRegistry;
@@ -39,7 +39,7 @@ public abstract class TagRegistryImpl<T, P extends TagBootstrapContext<T>> imple
     }
 
     public TagKey<T> makeWorldWeaverTag(String name) {
-        return makeTag(LibWoverTag.C.mk(name));
+        return makeTag(WoverFabric.C_TAG.mk(name));
     }
 
     public TagKey<T> makeCommonTag(String name) {

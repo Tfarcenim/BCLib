@@ -1,10 +1,10 @@
 package org.betterx.wover.biome.impl;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.api.builder.BiomeBootstrapContext;
 import org.betterx.wover.biome.api.builder.BiomeBuilder;
 import org.betterx.wover.biome.api.data.BiomeData;
 import org.betterx.wover.core.api.registry.CustomBootstrapContext;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 import org.betterx.wover.surface.api.AssignedSurfaceRule;
 import org.betterx.wover.tag.api.event.context.TagBootstrapContext;
 
@@ -54,7 +54,7 @@ public class BiomeBootstrapContextImpl extends CustomBootstrapContext<Biome, Bio
 
     @Override
     public void onBootstrapContextChange(BiomeBootstrapContextImpl bootstrapContext) {
-        LibWoverBiome.C.log.debug("Biome getter changed, resetting bootstrap context");
+        WoverFabric.C_BIOME.log.debug("Biome getter changed, resetting bootstrap context");
         BiomeManagerImpl.BOOTSTRAP_BIOMES_WITH_DATA.emit(c -> c.bootstrap(bootstrapContext));
     }
 }

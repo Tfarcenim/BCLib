@@ -1,6 +1,6 @@
 package org.betterx.bclib.noise;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class Noises {
     private static final Map<ResourceKey<NormalNoise.NoiseParameters>, NormalNoise> noiseIntances = new HashMap<>();
-    public static final ResourceKey<NormalNoise.NoiseParameters> ROUGHNESS_NOISE = createKey(BCLib.makeID(
+    public static final ResourceKey<NormalNoise.NoiseParameters> ROUGHNESS_NOISE = createKey(BCLibFabric.makeID(
             "roughness_noise"));
 
     public static ResourceKey<NormalNoise.NoiseParameters> createKey(ResourceLocation loc) {

@@ -1,6 +1,6 @@
 package org.betterx.wover.feature.impl;
 
-import org.betterx.wover.entrypoint.LibWoverFeature;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.feature.api.features.*;
 import org.betterx.wover.feature.api.features.config.*;
 import org.betterx.wover.legacy.api.LegacyHelper;
@@ -58,38 +58,38 @@ public class FeatureManagerImpl {
     }
 
     public static final Feature<PlaceFacingBlockConfig> PLACE_BLOCK = registerWithLegacy(
-            LibWoverFeature.C.id("place_block"),
+            WoverFabric.C_FEATURE.id("place_block"),
             PlaceBlockFeature::new,
             PlaceFacingBlockConfig.CODEC
     );
 
 
     public static final Feature<NoneFeatureConfiguration> MARK_POSTPROCESSING = registerWithLegacy(
-            LibWoverFeature.C.id("mark_postprocessing"),
+            WoverFabric.C_FEATURE.id("mark_postprocessing"),
             (codec) -> new MarkPostProcessingFeature(),
             null
     );
 
     public static final Feature<SequenceFeatureConfig> SEQUENCE = registerWithLegacy(
-            LibWoverFeature.C.id("sequence"),
+            WoverFabric.C_FEATURE.id("sequence"),
             (codec) -> new SequenceFeature(),
             null
     );
 
     public static final Feature<ConditionFeatureConfig> CONDITION = registerWithLegacy(
-            LibWoverFeature.C.id("condition"),
+            WoverFabric.C_FEATURE.id("condition"),
             codec -> new ConditionFeature(),
             null
     );
 
     public static final Feature<PillarFeatureConfig> PILLAR = registerWithLegacy(
-            LibWoverFeature.C.id("pillar"),
+            WoverFabric.C_FEATURE.id("pillar"),
             codec -> new PillarFeature(),
             null
     );
 
     public static final Feature<TemplateFeatureConfig> TEMPLATE = registerWithLegacy(
-            LibWoverFeature.C.id("template"),
+            WoverFabric.C_FEATURE.id("template"),
             TemplateFeature::new,
             TemplateFeatureConfig.CODEC
     );

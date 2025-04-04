@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.datafixer;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.client.gui.screens.AtomicProgressListener;
 import org.betterx.bclib.client.gui.screens.ConfirmFixScreen;
 import org.betterx.bclib.client.gui.screens.LevelFixErrorScreen;
@@ -44,7 +44,7 @@ import org.jetbrains.annotations.NotNull;
  * API to manage Patches that need to get applied to a world
  */
 public class DataFixerAPI {
-    static final Logger LOGGER = Logger.create(BCLib.C);
+    static final Logger LOGGER = Logger.create(BCLibFabric.C);
 
     static class State {
         public boolean didFail = false;
@@ -82,7 +82,7 @@ public class DataFixerAPI {
         try {
             levelStorageAccess = levelSource.createAccess(levelID);
         } catch (IOException e) {
-            BCLib.LOGGER.warn("Failed to read level {} data", levelID, e);
+            BCLibFabric.LOGGER.warn("Failed to read level {} data", levelID, e);
             SystemToast.onWorldAccessFailure(Minecraft.getInstance(), levelID);
             Minecraft.getInstance().setScreen(null);
             return true;
@@ -93,7 +93,7 @@ public class DataFixerAPI {
         try {
             levelStorageAccess.close();
         } catch (IOException e) {
-            BCLib.LOGGER.warn("Failed to unlock access to level {}", levelID, e);
+            BCLibFabric.LOGGER.warn("Failed to unlock access to level {}", levelID, e);
         }
 
         return returnValue;
@@ -144,7 +144,7 @@ public class DataFixerAPI {
      */
     public static void initializePatchData() {
         getMigrationProfile().markApplied();
-        WorldConfig.saveFile(BCLib.C);
+        WorldConfig.saveFile(BCLibFabric.C);
     }
 
 
@@ -190,7 +190,7 @@ public class DataFixerAPI {
                             int percentage = (100 * counter.incrementAndGet()) / maxProgress;
                             if (Util.getMillis() - this.timeStamp >= 1000L) {
                                 this.timeStamp = Util.getMillis();
-                                BCLib.LOGGER.info("Patching... {}%", percentage);
+                                BCLibFabric.LOGGER.info("Patching... {}%", percentage);
                             }
                         }
 
@@ -203,7 +203,7 @@ public class DataFixerAPI {
                         }
 
                         public void progressStage(Component component) {
-                            BCLib.LOGGER.info("Patcher Stage... {}%", component.getString());
+                            BCLibFabric.LOGGER.info("Patcher Stage... {}%", component.getString());
                         }
                     };
                 }
@@ -263,7 +263,7 @@ public class DataFixerAPI {
                 showBackupWarning(levelID, runFixes);
                 return true;
             } else {
-                BCLib.LOGGER.warn("Applying Fixes on Level");
+                BCLibFabric.LOGGER.warn("Applying Fixes on Level");
                 runFixes.accept(false, true);
             }
         }
@@ -299,7 +299,7 @@ public class DataFixerAPI {
 
     @NotNull
     private static MigrationProfile getMigrationProfile() {
-        final CompoundTag patchConfig = WorldConfig.getCompoundTag(BCLib.C, Configs.MAIN_PATCH_CATEGORY);
+        final CompoundTag patchConfig = WorldConfig.getCompoundTag(BCLibFabric.C, Configs.MAIN_PATCH_CATEGORY);
         MigrationProfile profile = Patch.createMigrationData(patchConfig);
         return profile;
     }
@@ -325,7 +325,7 @@ public class DataFixerAPI {
         progress.incAtomic(maxProgress);
 
         progress.progressStage(Component.translatable("message.bclib.datafixer.progress.players"));
-        RegionStorageInfo regionStorageInfo = new RegionStorageInfo(levelID, ResourceKey.create(Registries.DIMENSION, BCLib.makeID("world_fixer")), "mca");
+        RegionStorageInfo regionStorageInfo = new RegionStorageInfo(levelID, ResourceKey.create(Registries.DIMENSION, BCLibFabric.makeID("world_fixer")), "mca");
         players.parallelStream().forEach((file) -> {
             fixPlayer(profile, state, file.toPath(), regionStorageInfo);
             progress.incAtomic(maxProgress);
@@ -341,7 +341,7 @@ public class DataFixerAPI {
         } catch (PatchDidiFailException e) {
             state.didFail = true;
             state.addError("Failed fixing worldconfig (" + e.getMessage() + ")");
-            BCLib.LOGGER.error(e.getMessage());
+            BCLibFabric.LOGGER.error(e.getMessage());
         }
         progress.incAtomic(maxProgress);
 
@@ -354,7 +354,7 @@ public class DataFixerAPI {
         if (!state.didFail) {
             progress.progressStage(Component.translatable("message.bclib.datafixer.progress.saving"));
             profile.markApplied();
-            WorldConfig.saveFile(BCLib.C);
+            WorldConfig.saveFile(BCLibFabric.C);
         }
         progress.incAtomic(maxProgress);
 
@@ -393,7 +393,7 @@ public class DataFixerAPI {
                 NbtIo.writeCompressed(level, profile.getLevelDatPath());
             }
         } catch (Exception e) {
-            BCLib.LOGGER.error("Failed fixing Level-Data.");
+            BCLibFabric.LOGGER.error("Failed fixing Level-Data.");
             state.addError("Failed fixing Level-Data in level.dat (" + e.getMessage() + ")");
             state.didFail = true;
             e.printStackTrace();
@@ -413,7 +413,7 @@ public class DataFixerAPI {
                 NbtIo.writeCompressed(player, file);
             }
         } catch (Exception e) {
-            BCLib.LOGGER.error("Failed fixing Player-Data.");
+            BCLibFabric.LOGGER.error("Failed fixing Player-Data.");
             state.addError("Failed fixing Player-Data in " + file.getFileName() + " (" + e.getMessage() + ")");
             state.didFail = true;
             e.printStackTrace();
@@ -507,7 +507,7 @@ public class DataFixerAPI {
                                         )
                                 );
                             } catch (PatchDidiFailException e) {
-                                BCLib.LOGGER.error("Failed fixing BlockState in " + pos);
+                                BCLibFabric.LOGGER.error("Failed fixing BlockState in " + pos);
                                 state.addError("Failed fixing BlockState in " + pos + " (" + e.getMessage() + ")");
                                 state.didFail = true;
                                 changed[0] = false;
@@ -527,7 +527,7 @@ public class DataFixerAPI {
             }
             region.close();
         } catch (Exception e) {
-            BCLib.LOGGER.error("Failed fixing Region.");
+            BCLibFabric.LOGGER.error("Failed fixing Region.");
             state.addError("Failed fixing Region in " + file.getName() + " (" + e.getMessage() + ")");
             state.didFail = true;
             e.printStackTrace();
@@ -538,7 +538,7 @@ public class DataFixerAPI {
 
     static CompoundTag getPatchData() {
         if (patchConfTag == null) {
-            patchConfTag = WorldConfig.getCompoundTag(BCLib.C, Configs.MAIN_PATCH_CATEGORY);
+            patchConfTag = WorldConfig.getCompoundTag(BCLibFabric.C, Configs.MAIN_PATCH_CATEGORY);
         }
         return patchConfTag;
     }

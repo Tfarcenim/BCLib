@@ -1,6 +1,6 @@
 package org.betterx.bclib.furniture.entity;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.furniture.block.AbstractChair;
 
 import net.minecraft.nbt.CompoundTag;
@@ -40,7 +40,7 @@ public class EntityChair extends Entity {
         if (this.level().getBlockState(this.blockPosition()).getBlock() instanceof AbstractChair)
             localTick();
         else {
-            BCLib.LOGGER.info("Chair Block was deleted -> ejecting");
+            BCLibFabric.LOGGER.info("Chair Block was deleted -> ejecting");
             this.ejectPassengers();
             this.discard();
         }

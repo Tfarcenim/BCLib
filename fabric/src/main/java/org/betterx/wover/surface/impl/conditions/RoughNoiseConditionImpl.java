@@ -2,7 +2,7 @@ package org.betterx.wover.surface.impl.conditions;
 
 
 import org.betterx.wover.surface.api.noise.NoiseParameterManager;
-import org.betterx.wover.surface.mixin.SurfaceRulesContextAccessor;
+import org.betterx.wover.mixin.SurfaceRulesContextAccessor;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

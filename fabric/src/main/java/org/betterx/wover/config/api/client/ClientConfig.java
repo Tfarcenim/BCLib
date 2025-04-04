@@ -1,8 +1,8 @@
 package org.betterx.wover.config.api.client;
 
 import de.ambertation.wunderlib.configs.ConfigFile;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.config.api.MainConfig;
-import org.betterx.wover.entrypoint.LibWoverUi;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -45,6 +45,6 @@ public class ClientConfig extends ConfigFile {
     ).setGroup(MainConfig.WORLD_LOADING);
 
     public ClientConfig() {
-        super(LibWoverUi.C, "client");
+        super(WoverFabric.C_UI, "client");
     }
 }

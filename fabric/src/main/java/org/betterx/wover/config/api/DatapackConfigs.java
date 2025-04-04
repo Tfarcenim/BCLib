@@ -1,6 +1,6 @@
 package org.betterx.wover.config.api;
 
-import org.betterx.wover.entrypoint.LibWoverCore;
+import org.betterx.wover.WoverFabric;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.Resource;
@@ -40,7 +40,7 @@ public class DatapackConfigs {
         final Map<ResourceLocation, List<Resource>> aSet = manager.listResourceStacks(
                 "config",
                 id -> {
-                    LibWoverCore.C.log.debug("Checking Resource from Datapack: '{}'", id);
+                    WoverFabric.C_CORE.log.debug("Checking Resource from Datapack: '{}'", id);
                     return fileLocation.getNamespace().equals(id.getNamespace()) && id
                             .getPath()
                             .equals("config/" + fileLocation.getPath());
@@ -71,7 +71,7 @@ public class DatapackConfigs {
         final Map<ResourceLocation, List<Resource>> aSet = manager.listResourceStacks(
                 "config",
                 id -> {
-                    LibWoverCore.C.log.debug("Checking Resource from Datapack: '{}'", id);
+                    WoverFabric.C_CORE.log.debug("Checking Resource from Datapack: '{}'", id);
                     return paths.contains(id.getPath());
                 }
         );
@@ -92,7 +92,7 @@ public class DatapackConfigs {
                         if (obj != null)
                             handler.onLoad(entry.getKey(), obj);
                     } catch (Exception e) {
-                        LibWoverCore.C.log.error(
+                        WoverFabric.C_CORE.log.error(
                                 "Error occurred while loading resource json " + entry.getKey(),
                                 e
                         );

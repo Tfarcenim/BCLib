@@ -1,6 +1,6 @@
 package org.betterx.bclib.commands;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.wover.state.api.WorldState;
 
 import com.mojang.brigadier.Command;
@@ -48,7 +48,7 @@ public class DumpMap {
         final var basePath = WorldState
                 .storageAccess()
                 .getLevelPath(LevelResource.ROOT)
-                .resolve(BCLib.C.namespace)
+                .resolve(BCLibFabric.C.namespace)
                 .resolve("export")
                 .resolve(serverLevel.dimension().location().getPath())
                 .normalize();
@@ -156,7 +156,7 @@ public class DumpMap {
             String s = gson.toJson(root);
             java.nio.file.Files.writeString(fJson.toPath(), s);
         } catch (Exception e) {
-            BCLib.C.LOG.error("Error while saving json: " + e.getMessage());
+            BCLibFabric.C.LOG.error("Error while saving json: " + e.getMessage());
             result.append(Component.literal("Error while saving json: " + fJson.toString()));
         }
 
@@ -178,7 +178,7 @@ public class DumpMap {
         final var basePath = WorldState
                 .storageAccess()
                 .getLevelPath(LevelResource.ROOT)
-                .resolve(BCLib.C.namespace)
+                .resolve(BCLibFabric.C.namespace)
                 .resolve("export")
                 .resolve(serverLevel.dimension().location().getPath())
                 .normalize();
@@ -270,7 +270,7 @@ public class DumpMap {
         File fBasePath = basePath.toFile();
         if (!fBasePath.exists()) {
             if (!fBasePath.mkdirs()) {
-                BCLib.C.LOG.error("Error while creating directory: " + fBasePath.toString());
+                BCLibFabric.C.LOG.error("Error while creating directory: " + fBasePath.toString());
                 //append error to the result output
                 result.append(Component.literal("Error while creating directory: " + fBasePath.toString()));
                 return Command.SINGLE_SUCCESS;
@@ -292,7 +292,7 @@ public class DumpMap {
         try {
             ImageIO.write(iTemperature, "png", fTemperature);
         } catch (IOException e) {
-            BCLib.C.LOG.error("Error while saving image: " + e.getMessage());
+            BCLibFabric.C.LOG.error("Error while saving image: " + e.getMessage());
             result.append(Component.literal("Error while saving image: " + fTemperature.toString()));
         }
     }

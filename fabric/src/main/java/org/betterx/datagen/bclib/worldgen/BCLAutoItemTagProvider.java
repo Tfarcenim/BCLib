@@ -1,6 +1,6 @@
 package org.betterx.datagen.bclib.worldgen;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.behaviours.interfaces.BehaviourCompostable;
 import org.betterx.bclib.behaviours.interfaces.BehaviourLeaves;
 import org.betterx.bclib.behaviours.interfaces.BehaviourSaplingLike;
@@ -64,7 +64,7 @@ public class BCLAutoItemTagProvider extends WoverTagProvider.ForItems implements
     }
 
     private static void processBlockItemCommon(TagBootstrapContext<Item> context, ModCore modCore) {
-        BCLib.C.LOG.debug("Processing Items for " + modCore.namespace);
+        BCLibFabric.C.LOG.debug("Processing Items for " + modCore.namespace);
         ItemRegistry.forMod(modCore)
                     .allItems()
                     .forEach(item -> processItemCommon(context, item));

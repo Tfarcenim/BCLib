@@ -1,6 +1,6 @@
 package org.betterx.bclib.mixin.client;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.interfaces.AirSelectionItem;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -41,7 +41,7 @@ public class DebugRendererMixin {
             CallbackInfo ci
     ) {
         Minecraft minecraft = Minecraft.getInstance();
-        if (BCLib.isDevEnvironment() && minecraft.hitResult instanceof BlockHitResult blockHitResult && minecraft.player != null) {
+        if (BCLibFabric.isDevEnvironment() && minecraft.hitResult instanceof BlockHitResult blockHitResult && minecraft.player != null) {
             //will render a block outline when empty blocks are targeted
             ItemStack item = minecraft.player.getMainHandItem();
             if (item != null

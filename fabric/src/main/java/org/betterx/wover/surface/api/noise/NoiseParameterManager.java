@@ -1,6 +1,6 @@
 package org.betterx.wover.surface.api.noise;
 
-import org.betterx.wover.entrypoint.LibWoverMath;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.surface.impl.noise.NoiseRegistryImpl;
 
 import net.minecraft.core.RegistryAccess;
@@ -21,7 +21,7 @@ public class NoiseParameterManager {
      * Key for a WorldWeaver Noise function with custom Parameters
      */
     public static final ResourceKey<NormalNoise.NoiseParameters> ROUGHNESS_NOISE =
-            createKey(LibWoverMath.C.id("roughness_noise"));
+            createKey(WoverFabric.C_MATH.id("roughness_noise"));
 
     /**
      * Key for a Noise function with custom Parameters

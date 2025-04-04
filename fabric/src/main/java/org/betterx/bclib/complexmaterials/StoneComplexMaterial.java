@@ -1,6 +1,6 @@
 package org.betterx.bclib.complexmaterials;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.behaviours.BehaviourBuilders;
 import org.betterx.bclib.complexmaterials.entry.SlotMap;
 import org.betterx.bclib.complexmaterials.set.stone.StoneSlots;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 public class StoneComplexMaterial extends ComplexMaterialSet<StoneComplexMaterial> {
-    public static final ResourceLocation MATERIAL_ID = BCLib.makeID("stone_material");
+    public static final ResourceLocation MATERIAL_ID = BCLibFabric.makeID("stone_material");
     public final MapColor color;
     public final Block sourceBlock;
 

@@ -1,9 +1,9 @@
 package org.betterx.wover.biome.impl.data;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.api.data.BiomeCodecRegistry;
 import org.betterx.wover.biome.api.data.BiomeData;
 import org.betterx.wover.core.api.registry.BuiltInRegistryManager;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -38,7 +38,7 @@ public class BiomeCodecRegistryImpl {
     }
 
     private static MapCodec<? extends BiomeData> onBootstrap(Registry<MapCodec<? extends BiomeData>> registry) {
-        final var biomeData = LibWoverBiome.C.id("vanilla_data");
+        final var biomeData = WoverFabric.C_BIOME.id("vanilla_data");
         if (registry.containsKey(biomeData)) {
             return registry.get(biomeData);
         }

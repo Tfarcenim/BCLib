@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v3.datagen;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
 import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
@@ -43,7 +44,7 @@ public class RecipeDataProvider extends FabricRecipeProvider {
     @ApiStatus.Internal
     public static void register(DatapackRecipeBuilder builder) {
         //thi is only used withe the Data Generator, so we do not keep this list on a regular run
-        if (!BCLib.isDatagen()) {
+        if (!BCLibFabric.isDatagen()) {
             return;
         }
         if (RECIPES == null) RECIPES = new ArrayList<>();

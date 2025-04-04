@@ -1,6 +1,6 @@
 package org.betterx.bclib.furniture.block;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.blocks.BaseBlockNotFull;
 import org.betterx.bclib.furniture.entity.EntityChair;
 import org.betterx.bclib.registry.BaseBlockEntities;
@@ -106,7 +106,7 @@ public abstract class AbstractChair extends BaseBlockNotFull implements BlockMod
 
     @Nullable
     private EntityChair createEntity(BlockState state, Level world, BlockPos pos) {
-        BCLib.LOGGER.info("Creating Chair at " + pos + ", " + state);
+        BCLibFabric.LOGGER.info("Creating Chair at " + pos + ", " + state);
         EntityChair entity;
         double px = pos.getX() + 0.5;
         double py = pos.getY() + height;
@@ -149,7 +149,7 @@ public abstract class AbstractChair extends BaseBlockNotFull implements BlockMod
     @Override
     public void onPlace(BlockState blockState, Level level, BlockPos blockPos, BlockState blockState2, boolean bl) {
         super.onPlace(blockState, level, blockPos, blockState2, bl);
-        BCLib.LOGGER.info("Created at " + blockPos + ", " + blockState + ", " + blockState2);
+        BCLibFabric.LOGGER.info("Created at " + blockPos + ", " + blockState + ", " + blockState2);
         if (blockState.hasProperty(BaseChair.TOP)) {
             if (blockState.getValue(BaseChair.TOP))
                 return;

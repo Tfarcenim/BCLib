@@ -6,9 +6,9 @@ import de.ambertation.wunderlib.ui.layout.components.LayoutComponent;
 import de.ambertation.wunderlib.ui.layout.components.VerticalStack;
 import de.ambertation.wunderlib.ui.layout.values.Size;
 import de.ambertation.wunderlib.ui.layout.values.Value;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.config.api.client.ClientConfigs;
 import org.betterx.wover.core.api.ModCore;
-import org.betterx.wover.entrypoint.LibWoverUi;
 import org.betterx.wover.ui.api.VersionChecker;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 
 @Environment(EnvType.CLIENT)
 public class UpdatesScreen extends WoverLayoutScreen {
-    static final ResourceLocation UPDATE_LOGO_LOCATION = LibWoverUi.C.mk("icon_updater.png");
+    static final ResourceLocation UPDATE_LOGO_LOCATION = WoverFabric.C_UI.mk("icon_updater.png");
 
     public UpdatesScreen(@NotNull Runnable onClose) {
         super(onClose, Component.translatable("wover.updates.title"), 10, 10, 10);
@@ -48,7 +48,7 @@ public class UpdatesScreen extends WoverLayoutScreen {
     }
 
     public ResourceLocation getUpdaterIcon(ModCore core) {
-        if (core.namespace.equals(LibWoverUi.C.namespace)) {
+        if (core.namespace.equals(WoverFabric.C_UI.namespace)) {
             return UPDATE_LOGO_LOCATION;
         }
         ModContainer nfo = core.modContainer;

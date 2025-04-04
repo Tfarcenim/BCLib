@@ -1,6 +1,6 @@
 package org.betterx.bclib.items.boat;
 
-import org.betterx.bclib.BCLib;
+import org.betterx.bclib.BCLibFabric;
 import org.betterx.wover.core.api.ModCore;
 
 import net.minecraft.client.model.*;
@@ -48,13 +48,13 @@ public final class BoatTypeOverride {
         int nr = Objects.hash(name);
         if (nr >= 0 && nr <= 1000) nr += 1000;
         while (byId(nr) != null) {
-            BCLib.LOGGER.warn("Boat Type Ordinal " + nr + " is already used, searching for another one");
+            BCLibFabric.LOGGER.warn("Boat Type Ordinal " + nr + " is already used, searching for another one");
             nr++;
             if (nr >= 0 && nr <= 1000) nr += 1000;
         }
         this.ordinal = nr;
         this.isRaft = isRaft;
-        if (BCLib.isClient()) {
+        if (BCLibFabric.isClient()) {
             this.boatModelName = createBoatModelName(id.getNamespace(), id.getPath());
             this.chestBoatModelName = createChestBoatModelName(id.getNamespace(), id.getPath());
             this.boatTexture = getTextureLocation(modCore.namespace, name, false);
@@ -76,7 +76,7 @@ public final class BoatTypeOverride {
 
     @Environment(value = EnvType.CLIENT)
     public void createBoatModels(EntityRendererProvider.Context context) {
-        if (BCLib.isClient() && boatModel == null) {
+        if (BCLibFabric.isClient() && boatModel == null) {
             if (isRaft) {
                 boatModel = new RaftModel(context.bakeLayer(boatModelName));
                 chestBoatModel = new ChestRaftModel(context.bakeLayer(chestBoatModelName));

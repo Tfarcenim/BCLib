@@ -1,9 +1,9 @@
 package org.betterx.wover.biome.impl.modification.predicates;
 
 import de.ambertation.wunderlib.configs.AbstractConfig;
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.api.modification.predicates.BiomePredicate;
 import org.betterx.wover.config.api.Configs;
-import org.betterx.wover.entrypoint.LibWoverCore;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -51,13 +51,13 @@ public record ConfigIs(ResourceLocation configFile, String path, String key,
     public boolean test(Context ctx) {
         final AbstractConfig<?> config = Configs.get(configFile);
         if (config == null) {
-            LibWoverCore.C.log.verboseWarning("Config file %s not found", configFile);
+            WoverFabric.C_CORE.log.verboseWarning("Config file %s not found", configFile);
             return false;
         }
 
         final AbstractConfig<?>.Value<?, ? extends AbstractConfig<?>.Value<?, ?>> value = config.getValue(path, key);
         if (value == null) {
-            LibWoverCore.C.log.verboseWarning("Config value %s.%s not found in %s", path, key, configFile);
+            WoverFabric.C_CORE.log.verboseWarning("Config value %s.%s not found in %s", path, key, configFile);
             return false;
         }
 

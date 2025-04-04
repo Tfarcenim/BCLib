@@ -1,11 +1,11 @@
 package org.betterx.wover.biome.api;
 
+import org.betterx.wover.WoverFabric;
 import org.betterx.wover.biome.api.builder.BiomeBuilder;
 import org.betterx.wover.biome.api.builder.event.OnBootstrapBiomes;
 import org.betterx.wover.biome.api.data.BiomeData;
 import org.betterx.wover.biome.api.data.BiomeDataRegistry;
 import org.betterx.wover.biome.impl.BiomeManagerImpl;
-import org.betterx.wover.entrypoint.LibWoverBiome;
 import org.betterx.wover.events.api.Event;
 import org.betterx.wover.events.api.types.OnBootstrapRegistry;
 import org.betterx.wover.state.api.WorldState;
@@ -110,7 +110,7 @@ public class BiomeManager {
         if (biomes instanceof PalettedContainer<Holder<Biome>> palette) {
             palette.set((pos.getX() & 15) >> 2, (pos.getY() & 15) >> 2, (pos.getZ() & 15) >> 2, biome);
         } else {
-            LibWoverBiome.C.LOG.warn("Unable to change Biome at " + pos);
+            WoverFabric.C_BIOME.LOG.warn("Unable to change Biome at " + pos);
         }
     }
 
