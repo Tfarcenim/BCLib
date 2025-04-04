@@ -1,11 +1,10 @@
 package org.betterx.wover.ui.api;
 
+import org.betterx.bclib.platform.Services;
 import org.betterx.wover.WoverFabric;
 import org.betterx.wover.config.api.client.ClientConfigs;
 import org.betterx.wover.config.impl.CachedConfig;
 import org.betterx.wover.core.api.ModCore;
-
-import net.fabricmc.loader.api.FabricLoader;
 
 import com.google.gson.Gson;
 
@@ -157,7 +156,7 @@ public class VersionChecker implements Runnable {
             if (json.mods != null) {
                 for (ModVersion mod : json.mods) {
                     if (!KNOWN_MODS.contains(mod.n)) {
-                        if (FabricLoader.getInstance().getModContainer(mod.n).isPresent())
+                        if (Services.PLATFORM.isModLoaded(mod.n))
                             registerMod(mod.n);
                     }
                     if (mod.n != null && mod.v != null && KNOWN_MODS.contains(mod.n)) {
