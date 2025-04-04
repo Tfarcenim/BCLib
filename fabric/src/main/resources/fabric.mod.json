@@ -22,7 +22,7 @@
             "org.betterx.bclib.BCLibFabric"
         ],
         "client": [
-            "org.betterx.bclib.client.BCLibClient"
+          "org.betterx.bclib.client.BCLibClientFabric"
         ],
         "server": [
             "org.betterx.bclib.server.BCLibServer"

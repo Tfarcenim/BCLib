@@ -20,8 +20,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.Map;
 import java.util.Optional;
@@ -38,20 +37,20 @@ public abstract class BaseChainBlock extends ChainBlock implements RuntimeBlockM
 
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation blockId) {
         return ModelsHelper.createItemModel(blockId);
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public @Nullable BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
         Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_CHAIN, blockId);
         return ModelsHelper.fromPattern(pattern);
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public UnbakedModel getModelVariant(
             ModelResourceLocation stateId,
             BlockState blockState,

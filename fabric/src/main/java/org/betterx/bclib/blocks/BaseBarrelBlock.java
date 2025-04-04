@@ -30,8 +30,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -85,7 +84,7 @@ public abstract class BaseBarrelBlock extends BarrelBlock implements BlockModelP
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.createBarrel(this);
     }

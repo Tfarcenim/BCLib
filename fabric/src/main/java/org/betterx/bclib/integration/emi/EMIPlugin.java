@@ -1,6 +1,6 @@
 package org.betterx.bclib.integration.emi;
 
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.blocks.LeveledAnvilBlock;
 import org.betterx.bclib.interfaces.AlloyingRecipeWorkstation;
 import org.betterx.wover.core.api.Logger;
@@ -24,7 +24,7 @@ import java.util.function.Function;
 public class EMIPlugin implements EmiPlugin {
     private static boolean didInit = false;
     private static int maxAnvilLevel = 1;
-    public static final ResourceLocation BCL_SIMPLIFIED_SPRITES = BCLibFabric.makeID(
+    public static final ResourceLocation BCL_SIMPLIFIED_SPRITES = BCLib.makeID(
             "textures/gui/widgets.png"
     );
 
@@ -52,7 +52,7 @@ public class EMIPlugin implements EmiPlugin {
             END_ALLOYING_WORKSTATION = EmiStack.of(workstations);
 
             END_ALLOYING_CATEGORY = new EmiRecipeCategory(
-                    BCLibFabric.makeID("alloying"),
+                    BCLib.makeID("alloying"),
                     END_ALLOYING_WORKSTATION,
                     getSprite(16, 0)
             );
@@ -82,7 +82,7 @@ public class EMIPlugin implements EmiPlugin {
                         .findFirst().orElse(Blocks.BARRIER)
                 );
                 ANVIL_CATEGORIES[anvilLevel] = new EMIAnvilRecipeCategory(
-                        BCLibFabric.makeID("anvil_" + anvilLevel),
+                        BCLib.makeID("anvil_" + anvilLevel),
                         ANVIL_WORKSTATIONS[anvilLevel],
                         getSprite(0, 0),
                         anvilLevel

@@ -14,15 +14,14 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseBarkBlock extends BaseRotatedPillarBlock {
     protected BaseBarkBlock(Properties settings) {
         super(settings);
     }
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         var res = TextureMapping.getBlockTexture(this);

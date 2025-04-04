@@ -4,8 +4,7 @@ import org.betterx.bclib.api.v2.dataexchange.*;
 
 import net.minecraft.resources.ResourceLocation;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 
@@ -47,7 +46,7 @@ abstract public class DataExchange {
         return getInstance().descriptors.stream().filter(d -> d.equals(identifier)).findFirst().orElse(null);
     }
 
-    @Environment(EnvType.CLIENT)
+    
     protected void initClientside() {
         if (client != null) return;
         client = clientSupplier(this);
@@ -71,7 +70,7 @@ abstract public class DataExchange {
      * <p>
      * This is automatically called by BCLibFabric. You can register {@link DataHandler}-Objects before this Method is called
      */
-    @Environment(EnvType.CLIENT)
+    
     public static void prepareClientside() {
         DataExchange api = DataExchange.getInstance();
         api.initClientside();
@@ -95,7 +94,7 @@ abstract public class DataExchange {
      * This is automatically called by BCLibFabric. It will send all {@link DataHandler}-Objects that have {@link DataHandlerDescriptor#sendBeforeEnter} set to*
      * {@code true},
      */
-    @Environment(EnvType.CLIENT)
+    
     public static void sendOnEnter() {
         getInstance().descriptors.forEach((desc) -> {
             if (desc.sendBeforeEnter) {

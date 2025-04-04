@@ -11,15 +11,14 @@ import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.Map;
 import java.util.Optional;
 import org.jetbrains.annotations.Nullable;
 
 public interface RuntimeBlockModelProvider extends ItemModelProvider {
-    @Environment(EnvType.CLIENT)
+    
     default @Nullable BlockModel getBlockModel(ResourceLocation resourceLocation, BlockState blockState) {
         Optional<String> pattern = PatternsHelper.createBlockSimple(resourceLocation);
         return ModelsHelper.fromPattern(pattern);
@@ -44,7 +43,7 @@ public interface RuntimeBlockModelProvider extends ItemModelProvider {
         );
     }
 
-    @Environment(EnvType.CLIENT)
+    
     default UnbakedModel getModelVariant(
             ModelResourceLocation stateId,
             BlockState blockState,
@@ -55,7 +54,7 @@ public interface RuntimeBlockModelProvider extends ItemModelProvider {
         return ModelsHelper.createBlockSimple(modelId.id());
     }
 
-    @Environment(EnvType.CLIENT)
+    
     default void registerBlockModel(
             ModelResourceLocation stateId,
             ModelResourceLocation modelId,

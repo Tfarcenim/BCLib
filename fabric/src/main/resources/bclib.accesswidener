@@ -65,3 +65,5 @@ accessible field net/minecraft/world/level/biome/MobSpawnSettings spawners Ljava
 mutable field net/minecraft/world/level/biome/MobSpawnSettings spawners Ljava/util/Map;
 accessible field net/minecraft/data/recipes/RecipeProvider recipePathProvider Lnet/minecraft/data/PackOutput$PathProvider;
 accessible field net/minecraft/data/recipes/RecipeProvider advancementPathProvider Lnet/minecraft/data/PackOutput$PathProvider;
+
+accessible field net/minecraft/core/registries/BuiltInRegistries WRITABLE_REGISTRY Lnet/minecraft/core/WritableRegistry;

@@ -1,6 +1,5 @@
 package org.betterx.bclib;
 
-import org.betterx.CommonClass;
 import org.betterx.bclib.platform.Services;
 import org.betterx.bclib.api.v2.levelgen.LevelGenEvents;
 import org.betterx.bclib.api.v2.levelgen.structures.TemplatePiece;
@@ -22,15 +21,12 @@ import org.betterx.wover.datagen.api.WoverDataGenEntryPoint;
 import org.betterx.wover.state.api.WorldConfig;
 import org.betterx.wover.ui.api.VersionChecker;
 
-import net.minecraft.resources.ResourceLocation;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class BCLibFabric implements ModInitializer {
-    public static final ModCore C = ModCore.create("bclib");
-    public static final String MOD_ID = C.namespace;
+    public static final ModCore C = ModCore.create(BCLib.MOD_ID);
     public static final Logger LOGGER = C.LOG;
 
     public static final boolean RUNS_NULLSCAPE = Services.PLATFORM.isModLoaded("nullscape");
@@ -65,7 +61,7 @@ public class BCLibFabric implements ModInitializer {
 
         }
 
-        CommonClass.init();
+        BCLib.init();
         WoverFabric.onInitialize();
         CachedConfig.ensureStaticallyLoaded();
     }
@@ -80,10 +76,6 @@ public class BCLibFabric implements ModInitializer {
 
     public static boolean isClient() {
         return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
-    }
-
-    public static ResourceLocation makeID(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
 }

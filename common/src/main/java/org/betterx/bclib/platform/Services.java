@@ -1,6 +1,6 @@
 package org.betterx.bclib.platform;
 
-import org.betterx.Constants;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.platform.services.IPlatformHelper;
 
 import java.util.ServiceLoader;
@@ -24,7 +24,7 @@ public class Services {
         final T loadedService = ServiceLoader.load(clazz)
                 .findFirst()
                 .orElseThrow(() -> new NullPointerException("Failed to load service for " + clazz.getName()));
-        Constants.LOG.debug("Loaded {} for service {}", loadedService, clazz);
+        BCLib.LOG.debug("Loaded {} for service {}", loadedService, clazz);
         return loadedService;
     }
 }

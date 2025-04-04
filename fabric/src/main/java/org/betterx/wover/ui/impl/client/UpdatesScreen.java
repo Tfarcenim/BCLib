@@ -19,14 +19,13 @@ import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.metadata.CustomValue;
 
 import org.jetbrains.annotations.NotNull;
 
-@Environment(EnvType.CLIENT)
+
 public class UpdatesScreen extends WoverLayoutScreen {
     static final ResourceLocation UPDATE_LOGO_LOCATION = WoverFabric.C_UI.mk("icon_updater.png");
 

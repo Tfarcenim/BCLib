@@ -14,8 +14,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import com.google.common.collect.Maps;
 
@@ -297,7 +296,7 @@ public class ColorUtil {
 
     private static final Map<ResourceLocation, Integer> colorPalette = Maps.newHashMap();
 
-    @Environment(EnvType.CLIENT)
+    
     public static int extractColor(Item item) {
         ResourceLocation id = BuiltInRegistries.ITEM.getKey(item);
         if (id.equals(BuiltInRegistries.ITEM.getDefaultKey())) return -1;
@@ -331,7 +330,7 @@ public class ColorUtil {
         return color;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public static NativeImage loadImage(ResourceLocation image, int w, int h) {
         Minecraft minecraft = Minecraft.getInstance();
         ResourceManager resourceManager = minecraft.getResourceManager();

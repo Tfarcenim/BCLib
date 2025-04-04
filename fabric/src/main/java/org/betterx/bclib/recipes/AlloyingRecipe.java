@@ -1,6 +1,6 @@
 package org.betterx.bclib.recipes;
 
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.interfaces.AlloyingRecipeWorkstation;
 import org.betterx.bclib.interfaces.UnknownReceipBookCategory;
 import org.betterx.bclib.util.ItemUtil;
@@ -27,8 +27,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -37,9 +36,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class AlloyingRecipe implements Recipe<AlloyingRecipeInput>, UnknownReceipBookCategory {
     public final static String GROUP = "alloying";
-    public final static RecipeType<AlloyingRecipe> TYPE = BCLRecipeManager.registerType(BCLibFabric.MOD_ID, GROUP);
+    public final static RecipeType<AlloyingRecipe> TYPE = BCLRecipeManager.registerType(BCLib.MOD_ID, GROUP);
     public final static Serializer SERIALIZER = BCLRecipeManager.registerSerializer(
-            BCLibFabric.MOD_ID,
+            BCLib.MOD_ID,
             GROUP,
             new Serializer()
     );
@@ -135,12 +134,12 @@ public class AlloyingRecipe implements Recipe<AlloyingRecipeInput>, UnknownRecei
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public String getGroup() {
         return this.group;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public ItemStack getToastSymbol() {
         return AlloyingRecipeWorkstation.getWorkstationIcon();
     }

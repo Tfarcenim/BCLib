@@ -21,8 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LadderBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseLadderBlock extends LadderBlock implements RenderLayerProvider, BehaviourClimable, DropSelfLootProvider<BaseLadderBlock>, BlockModelProvider {
     protected BaseLadderBlock(Block block) {
@@ -38,7 +37,7 @@ public abstract class BaseLadderBlock extends LadderBlock implements RenderLayer
         return BCLRenderLayer.CUTOUT;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         var mapping = new TextureMapping()

@@ -31,8 +31,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -167,7 +166,7 @@ public abstract class AbstractChair extends BaseBlockNotFull implements BlockMod
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
 
     }

@@ -43,8 +43,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.jetbrains.annotations.NotNull;
 
@@ -217,7 +216,7 @@ public abstract class StalactiteBlock extends BaseBlockNotFull implements Simple
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         final ResourceLocation id = TextureMapping.getBlockTexture(this);
         final var props = PropertyDispatch.properties(IS_FLOOR, SIZE);

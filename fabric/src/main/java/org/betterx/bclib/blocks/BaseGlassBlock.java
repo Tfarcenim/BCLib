@@ -15,8 +15,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,7 +33,7 @@ public class BaseGlassBlock extends BaseBlockNotFull implements AddMineablePicka
                         .isViewBlocking((arg1, arg2, arg3) -> false));
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public float getShadeBrightness(BlockState state, BlockGetter view, BlockPos pos) {
         return 1.0F;
     }
@@ -44,7 +43,7 @@ public class BaseGlassBlock extends BaseBlockNotFull implements AddMineablePicka
         return true;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public boolean skipRendering(BlockState state, BlockState neighbor, Direction facing) {
         return neighbor.getBlock() == this || super.skipRendering(state, neighbor, facing);
     }

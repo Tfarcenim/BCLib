@@ -28,8 +28,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -103,7 +102,7 @@ public abstract class BasePlantBlock extends BaseBlockNotFull implements RenderL
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.vanillaGenerator.createCrossBlock(this, BlockModelGenerators.TintState.NOT_TINTED);
         generator.createFlatItem(this);

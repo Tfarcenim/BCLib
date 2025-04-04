@@ -2,15 +2,14 @@ package org.betterx.bclib.client.models;
 
 import net.minecraft.resources.ResourceLocation;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import com.google.common.collect.Lists;
 import org.joml.Vector3f;
 
 import java.util.List;
 
-@Environment(EnvType.CLIENT)
+
 public class OBJModelBuilder {
     private static final OBJModelBuilder INSTANCE = new OBJModelBuilder();
     private final List<ResourceLocation> textures = Lists.newArrayList();

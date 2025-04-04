@@ -12,8 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseComposterBlock extends ComposterBlock implements BlockModelProvider, BlockTagProvider, DropSelfLootProvider<BaseComposterBlock> {
     protected BaseComposterBlock(Block source) {
@@ -21,7 +20,7 @@ public abstract class BaseComposterBlock extends ComposterBlock implements Block
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.createComposter(this);
     }

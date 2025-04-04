@@ -13,13 +13,12 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 
 import org.jetbrains.annotations.NotNull;
 
-@Environment(EnvType.CLIENT)
+
 public abstract class HumanoidArmorRenderer implements ArmorRenderer {
     public interface CopyExtraState {
         void copyPropertiesFrom(HumanoidModel<LivingEntity> parentModel);

@@ -11,8 +11,7 @@ import net.minecraft.client.renderer.RenderBuffers;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +20,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.jetbrains.annotations.Nullable;
 
 @Mixin(LevelRenderer.class)
-@Environment(EnvType.CLIENT)
+
 public abstract class LevelRendererMixin implements LevelRendererAccess {
     @Final
     @Shadow

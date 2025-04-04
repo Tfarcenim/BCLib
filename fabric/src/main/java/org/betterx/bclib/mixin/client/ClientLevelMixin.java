@@ -8,8 +8,7 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.particles.ParticleOptions;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,7 +17,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.jetbrains.annotations.Nullable;
 
 @Mixin(ClientLevel.class)
-@Environment(EnvType.CLIENT)
+
 public class ClientLevelMixin implements ClientLevelAccess {
     @Shadow
     @Final

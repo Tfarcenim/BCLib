@@ -12,8 +12,7 @@ import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +31,6 @@ public final class BoatTypeOverride {
     public final ResourceLocation chestBoatTexture;
     public final ModelLayerLocation boatModelName;
     public final ModelLayerLocation chestBoatModelName;
-    @Environment(value = EnvType.CLIENT)
     private ListModel<Boat> boatModel, chestBoatModel;
     private BoatItem boat, chestBoat;
     public final boolean isRaft;
@@ -69,12 +67,10 @@ public final class BoatTypeOverride {
         values.add(this);
     }
 
-    @Environment(value = EnvType.CLIENT)
     public ListModel<Boat> getBoatModel(boolean chest) {
         return chest ? chestBoatModel : boatModel;
     }
 
-    @Environment(value = EnvType.CLIENT)
     public void createBoatModels(EntityRendererProvider.Context context) {
         if (BCLibFabric.isClient() && boatModel == null) {
             if (isRaft) {

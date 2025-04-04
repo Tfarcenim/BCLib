@@ -14,8 +14,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
@@ -74,7 +73,7 @@ public class BaseBlock extends Block implements BlockLootProvider, BlockModelPro
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.createCubeModel(this);
     }

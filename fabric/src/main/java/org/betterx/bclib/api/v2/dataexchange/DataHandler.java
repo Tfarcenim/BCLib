@@ -11,8 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.world.entity.player.Player;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
@@ -64,7 +63,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
 
     abstract protected void runOnGameThread(Minecraft client, MinecraftServer server, boolean isClient);
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     void receiveFromServer(
             Minecraft client,
@@ -126,7 +125,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
 
     }
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     void sendToServer(Minecraft client) {
         if (prepareData(true)) {
@@ -164,12 +163,12 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
             super(identifier, false);
         }
 
-        @Environment(EnvType.CLIENT)
+        
         protected boolean prepareDataOnClient() {
             return true;
         }
 
-        @Environment(EnvType.CLIENT)
+        
         abstract protected T serializeDataOnClient();
 
         protected abstract void deserializeIncomingDataOnServer(
@@ -217,7 +216,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
             BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the client!");
         }
 
-        @Environment(EnvType.CLIENT)
+        
         @Override
         void sendToServer(Minecraft client) {
             if (prepareDataOnClient()) {
@@ -261,10 +260,10 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
 
         abstract protected T serializeDataOnServer();
 
-        @Environment(EnvType.CLIENT)
+        
         abstract protected void deserializeIncomingDataOnClient(T payload, PacketSender responseSender);
 
-        @Environment(EnvType.CLIENT)
+        
         abstract protected void runOnClientGameThread(Minecraft client);
 
 
@@ -315,7 +314,7 @@ public abstract class DataHandler<T extends CustomPacketPayload> extends BaseDat
             }
         }
 
-        @Environment(EnvType.CLIENT)
+        
         @Override
         final void sendToServer(Minecraft client) {
             BCLibFabric.LOGGER.error("[Internal Error] The message '" + getIdentifier() + "' must originate from the server!");

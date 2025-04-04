@@ -11,8 +11,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.SpawnEggItem;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.Optional;
 
@@ -22,7 +21,7 @@ public class BaseSpawnEggItem extends SpawnEggItem implements ItemModelProvider 
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         Optional<String> pattern = PatternsHelper.createJson(BasePatterns.ITEM_SPAWN_EGG, resourceLocation);
         return ModelsHelper.fromPattern(pattern);

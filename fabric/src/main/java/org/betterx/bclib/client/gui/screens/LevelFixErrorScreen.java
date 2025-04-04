@@ -9,10 +9,9 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 
-@Environment(EnvType.CLIENT)
+
+
 public class LevelFixErrorScreen extends BCLibLayoutScreen {
     private final String[] errors;
     final Listener onContinue;
@@ -67,7 +66,7 @@ public class LevelFixErrorScreen extends BCLibLayoutScreen {
         return grid;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public interface Listener {
         void doContinue(boolean markFixed);
     }

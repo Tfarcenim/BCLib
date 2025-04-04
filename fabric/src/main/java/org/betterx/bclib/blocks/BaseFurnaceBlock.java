@@ -35,8 +35,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import com.google.common.collect.Lists;
 
@@ -66,7 +65,7 @@ public abstract class BaseFurnaceBlock extends FurnaceBlock implements RenderLay
         }
     }
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         final var baseTexture = TextureMapping.getBlockTexture(this);
@@ -92,7 +91,7 @@ public abstract class BaseFurnaceBlock extends FurnaceBlock implements RenderLay
         generator.acceptBlockState(MultiVariantGenerator.multiVariant(this).with(prop));
     }
 
-    @Environment(EnvType.CLIENT)
+    
     private static void addRotationModels(
             PropertyDispatch.C2<Boolean, Direction> prop,
             ResourceLocation furnaceModel,

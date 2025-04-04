@@ -1,6 +1,6 @@
 package com.example.examplemod.mixin;
 
-import org.betterx.Constants;
+import org.betterx.bclib.BCLib;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.TitleScreen;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,7 +14,7 @@ public class MixinTitleScreen {
     @Inject(at = @At("HEAD"), method = "init()V")
     private void init(CallbackInfo info) {
 
-        Constants.LOG.info("This line is printed by an example mod mixin from NeoForge!");
-        Constants.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
+        BCLib.LOG.info("This line is printed by an example mod mixin from NeoForge!");
+        BCLib.LOG.info("MC Version: {}", Minecraft.getInstance().getVersionType());
     }
 }

@@ -30,8 +30,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.BlockHitResult;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -120,13 +119,13 @@ public class TripleTerrainBlock extends BaseTerrainBlock implements RuntimeBlock
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation blockId) {
         return getBlockModel(blockId, defaultBlockState());
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public @Nullable BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
         String path = blockId.getPath();
         Optional<String> pattern;
@@ -144,7 +143,7 @@ public class TripleTerrainBlock extends BaseTerrainBlock implements RuntimeBlock
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public UnbakedModel getModelVariant(
             ModelResourceLocation stateId,
             BlockState blockState,

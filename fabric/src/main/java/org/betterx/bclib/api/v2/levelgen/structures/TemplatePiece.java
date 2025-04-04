@@ -1,6 +1,6 @@
 package org.betterx.bclib.api.v2.levelgen.structures;
 
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.util.BlocksHelper;
 import org.betterx.bclib.util.MHelper;
 import org.betterx.bclib.util.StructureErode;
@@ -41,7 +41,7 @@ public class TemplatePiece extends TemplateStructurePiece {
 
 
     private static StructurePieceType setFullContextPieceId(StructurePieceType structurePieceType, String id) {
-        return Registry.register(BuiltInRegistries.STRUCTURE_PIECE, BCLibFabric.makeID(id), structurePieceType);
+        return Registry.register(BuiltInRegistries.STRUCTURE_PIECE, BCLib.makeID(id), structurePieceType);
     }
 
     private static StructurePieceType setTemplatePieceId(

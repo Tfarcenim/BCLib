@@ -10,12 +10,11 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.jetbrains.annotations.Nullable;
 
-@Environment(EnvType.CLIENT)
+
 public class ConfirmFixScreen extends BCLibLayoutScreen {
     protected final ConfirmFixScreen.Listener listener;
     private final Component description;
@@ -60,7 +59,7 @@ public class ConfirmFixScreen extends BCLibLayoutScreen {
         return grid;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     public interface Listener {
         void proceed(boolean createBackup, boolean applyPatches);
     }

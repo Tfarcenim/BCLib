@@ -29,8 +29,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
@@ -156,13 +155,13 @@ public class FeatureSaplingBlock<F extends Feature<FC>, FC extends FeatureConfig
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return ModelsHelper.createBlockItem(resourceLocation);
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public @Nullable BlockModel getBlockModel(ResourceLocation resourceLocation, BlockState blockState) {
         Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_CROSS, resourceLocation);
         return ModelsHelper.fromPattern(pattern);

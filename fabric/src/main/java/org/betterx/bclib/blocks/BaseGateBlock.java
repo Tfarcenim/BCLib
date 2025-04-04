@@ -13,8 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseGateBlock extends FenceGateBlock implements BlockModelProvider, BlockTagProvider, DropSelfLootProvider<BaseGateBlock> {
     private final Block parent;
@@ -30,7 +29,7 @@ public abstract class BaseGateBlock extends FenceGateBlock implements BlockModel
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.createFenceGate(parent, this);
     }

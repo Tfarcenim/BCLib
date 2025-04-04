@@ -21,8 +21,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DispenserBlock;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 
 import com.google.common.collect.Lists;
@@ -70,7 +69,7 @@ public class PostInitAPI {
         itemTags = null;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     private static void processBlockClient(Block block) {
         if (block instanceof RenderLayerProvider) {
             BCLRenderLayer layer = ((RenderLayerProvider) block).getRenderLayer();

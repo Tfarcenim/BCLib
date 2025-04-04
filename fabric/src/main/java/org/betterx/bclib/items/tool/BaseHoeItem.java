@@ -8,8 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Tier;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public class BaseHoeItem extends HoeItem implements ItemModelProvider {
     public BaseHoeItem(Tier material, int attackDamage, float attackSpeed, Properties settings) {
@@ -21,7 +20,7 @@ public class BaseHoeItem extends HoeItem implements ItemModelProvider {
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return ModelsHelper.createHandheldItem(resourceLocation);
     }

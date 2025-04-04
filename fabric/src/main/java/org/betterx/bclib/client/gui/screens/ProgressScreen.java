@@ -5,7 +5,7 @@ import de.ambertation.wunderlib.ui.layout.components.*;
 import de.ambertation.wunderlib.ui.layout.values.Rectangle;
 import de.ambertation.wunderlib.ui.layout.values.Value;
 import de.ambertation.wunderlib.ui.vanilla.LayoutScreen;
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -126,7 +126,7 @@ class ProgressLogoRender extends CustomRenderComponent<ProgressLogoRender> {
 public class ProgressScreen extends LayoutScreen implements ProgressListener, AtomicProgressListener {
 
     static final ResourceLocation BCLIB_LOGO_PIXELATED_LOCATION = ResourceLocation.fromNamespaceAndPath(
-            BCLibFabric.MOD_ID,
+            BCLib.MOD_ID,
             "iconpixelated.png"
     );
 

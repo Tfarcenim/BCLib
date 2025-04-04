@@ -1,5 +1,7 @@
 package org.betterx.wover;
 
+import de.ambertation.wunderlib.network.SendToClientImpl;
+import de.ambertation.wunderlib.network.SendToServerImpl;
 import org.betterx.wover.biome.impl.BiomeManagerImpl;
 import org.betterx.wover.biome.impl.data.BiomeCodecRegistryImpl;
 import org.betterx.wover.biome.impl.modification.BiomeModificationRegistryImpl;
@@ -101,6 +103,7 @@ public class WoverFabric {
         WorldLifecycle
                 .BEFORE_LOADING_RESOURCES
                 .subscribe((resourceManager, featureFlagSet) -> TagBootstrapContextImpl.invalidateCaches(), SYSTEM_PRIORITY);
+
     }
 
 }

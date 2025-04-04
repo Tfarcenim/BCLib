@@ -16,8 +16,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CraftingTableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseCraftingTableBlock extends CraftingTableBlock implements DropSelfLootProvider<BaseCraftingTableBlock>, BlockModelProvider, BlockTagProvider, ItemTagProvider {
     protected BaseCraftingTableBlock(Block source) {
@@ -39,7 +38,7 @@ public abstract class BaseCraftingTableBlock extends CraftingTableBlock implemen
                 .put(TextureSlot.WEST, TextureMapping.getBlockTexture(block, "_front"));
     }
 
-    @Environment(EnvType.CLIENT)
+    
     @Override
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         generator.vanillaGenerator.createCraftingTableLike(this, this, BaseCraftingTableBlock::craftingTableTextureMapping);
@@ -56,13 +55,13 @@ public abstract class BaseCraftingTableBlock extends CraftingTableBlock implemen
     }
 
 //    @Override
-//    @Environment(EnvType.CLIENT)
+//    
 //    public BlockModel getItemModel(ResourceLocation resourceLocation) {
 //        return getBlockModel(resourceLocation, defaultBlockState());
 //    }
 //
 //    @Override
-//    @Environment(EnvType.CLIENT)
+//    
 //    public @Nullable BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
 //        String blockName = blockId.getPath();
 //        Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_SIDED, new HashMap<String, String>() {

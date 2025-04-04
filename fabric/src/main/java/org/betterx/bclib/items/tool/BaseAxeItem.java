@@ -8,8 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.Tier;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public class BaseAxeItem extends AxeItem implements ItemModelProvider {
     public BaseAxeItem(Tier material, float attackDamage, float attackSpeed, Properties settings) {
@@ -21,7 +20,7 @@ public class BaseAxeItem extends AxeItem implements ItemModelProvider {
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return ModelsHelper.createHandheldItem(resourceLocation);
     }

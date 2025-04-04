@@ -1,6 +1,6 @@
 package org.betterx.bclib.complexmaterials;
 
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.complexmaterials.entry.SlotMap;
 import org.betterx.bclib.complexmaterials.set.wood.WoodSlots;
 import org.betterx.bclib.items.boat.BoatTypeOverride;
@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.Nullable;
 
 public class WoodenComplexMaterial extends ComplexMaterialSet<WoodenComplexMaterial> {
-    public static final ResourceLocation MATERIAL_ID = BCLibFabric.makeID("wooden_material");
+    public static final ResourceLocation MATERIAL_ID = BCLib.makeID("wooden_material");
 
     public static final String BLOCK_CRAFTING_TABLE = WoodSlots.CRAFTING_TABLE.suffix;
     public static final String BLOCK_STRIPPED_BARK = WoodSlots.STRIPPED_BARK.suffix;

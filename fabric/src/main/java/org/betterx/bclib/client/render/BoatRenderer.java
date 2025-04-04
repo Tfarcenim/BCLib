@@ -16,12 +16,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.entity.vehicle.ChestBoat;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.joml.Quaternionf;
 
-@Environment(value = EnvType.CLIENT)
 public class BoatRenderer {
 
     public static boolean render(

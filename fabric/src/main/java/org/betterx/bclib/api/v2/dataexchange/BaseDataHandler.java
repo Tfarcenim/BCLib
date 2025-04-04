@@ -9,8 +9,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 
 import java.nio.charset.StandardCharsets;
@@ -35,7 +34,7 @@ public abstract class BaseDataHandler<T extends CustomPacketPayload> {
         return identifier;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     abstract void receiveFromServer(
             Minecraft client,
             ClientPacketListener handler,
@@ -65,7 +64,7 @@ public abstract class BaseDataHandler<T extends CustomPacketPayload> {
 
     abstract void sendToClient(MinecraftServer server, ServerPlayer player);
 
-    @Environment(EnvType.CLIENT)
+    
     abstract void sendToServer(Minecraft client);
 
     protected boolean isBlocking() {

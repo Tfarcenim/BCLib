@@ -36,8 +36,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.storage.loot.LootTable;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -185,7 +184,7 @@ public class DebugDataItem extends Item implements ItemModelProvider, AirSelecti
 
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public BlockModel getItemModel(ResourceLocation resourceLocation) {
         return ModelsHelper.createItemModel(icon);
     }

@@ -1,5 +1,6 @@
 package org.betterx.bclib.api.v2.datafixer;
 
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.BCLibFabric;
 import org.betterx.bclib.client.gui.screens.AtomicProgressListener;
 import org.betterx.bclib.client.gui.screens.ConfirmFixScreen;
@@ -25,8 +26,7 @@ import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.level.storage.LevelStorageSource;
 import net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import java.io.*;
 import java.nio.file.Path;
@@ -148,7 +148,7 @@ public class DataFixerAPI {
     }
 
 
-    @Environment(EnvType.CLIENT)
+    
     private static AtomicProgressListener showProgressScreen() {
         ProgressScreen ps = new ProgressScreen(
                 Minecraft.getInstance().screen,
@@ -270,7 +270,7 @@ public class DataFixerAPI {
         return false;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     private static void showLevelFixErrorScreen(State state, Listener onContinue) {
         Minecraft.getInstance()
                  .setScreen(new LevelFixErrorScreen(
@@ -304,7 +304,7 @@ public class DataFixerAPI {
         return profile;
     }
 
-    @Environment(EnvType.CLIENT)
+    
     static void showBackupWarning(String levelID, BiConsumer<Boolean, Boolean> whenFinished) {
         Minecraft.getInstance().setScreen(new ConfirmFixScreen(null, whenFinished::accept));
     }
@@ -325,7 +325,7 @@ public class DataFixerAPI {
         progress.incAtomic(maxProgress);
 
         progress.progressStage(Component.translatable("message.bclib.datafixer.progress.players"));
-        RegionStorageInfo regionStorageInfo = new RegionStorageInfo(levelID, ResourceKey.create(Registries.DIMENSION, BCLibFabric.makeID("world_fixer")), "mca");
+        RegionStorageInfo regionStorageInfo = new RegionStorageInfo(levelID, ResourceKey.create(Registries.DIMENSION, BCLib.makeID("world_fixer")), "mca");
         players.parallelStream().forEach((file) -> {
             fixPlayer(profile, state, file.toPath(), regionStorageInfo);
             progress.incAtomic(maxProgress);

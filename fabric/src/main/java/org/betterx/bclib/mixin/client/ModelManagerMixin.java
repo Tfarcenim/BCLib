@@ -1,6 +1,6 @@
 package org.betterx.bclib.mixin.client;
 
-import org.betterx.bclib.client.BCLibClient;
+import org.betterx.bclib.client.BCLibClientFabric;
 
 import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
@@ -27,6 +27,6 @@ public class ModelManagerMixin {
             Executor executor2,
             CallbackInfoReturnable<CompletableFuture<Void>> cir
     ) {
-        BCLibClient.lazyModelbakery().loadCustomModels(resourceManager);
+        BCLibClientFabric.lazyModelbakery().loadCustomModels(resourceManager);
     }
 }

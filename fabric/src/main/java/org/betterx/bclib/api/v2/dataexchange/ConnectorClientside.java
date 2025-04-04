@@ -6,16 +6,14 @@ import org.betterx.bclib.api.v2.dataexchange.handler.DataExchange;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 
 
 /**
- * This is an internal class that handles a Clienetside players Connection to a Server
+ * This is an internal class that handles a Clientside players Connection to a Server
  */
-@Environment(EnvType.CLIENT)
 public class ConnectorClientside extends Connector {
     private Minecraft client;
 

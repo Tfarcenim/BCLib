@@ -33,8 +33,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.Half;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public abstract class BaseTrapdoorBlock extends TrapDoorBlock implements RenderLayerProvider, BlockModelProvider, BlockTagProvider, ItemTagProvider, DropSelfLootProvider<BaseTrapdoorBlock> {
     protected BaseTrapdoorBlock(BlockBehaviour.Properties properties, BlockSetType type) {
@@ -88,7 +87,7 @@ public abstract class BaseTrapdoorBlock extends TrapDoorBlock implements RenderL
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
+    
     public void provideBlockModels(WoverBlockModelGenerators generator) {
         final var id = TextureMapping.getBlockTexture(this);
         final var mapping = new TextureMapping()

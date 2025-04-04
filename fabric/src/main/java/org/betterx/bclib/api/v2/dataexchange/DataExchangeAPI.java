@@ -2,8 +2,7 @@ package org.betterx.bclib.api.v2.dataexchange;
 
 import org.betterx.bclib.api.v2.dataexchange.handler.DataExchange;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 public class DataExchangeAPI extends DataExchange {
     /**
@@ -13,7 +12,7 @@ public class DataExchangeAPI extends DataExchange {
         super();
     }
 
-    @Environment(EnvType.CLIENT)
+    
     protected ConnectorClientside clientSupplier(DataExchange api) {
         return new ConnectorClientside(api);
     }

@@ -17,8 +17,7 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -32,7 +31,7 @@ import java.util.*;
 import java.util.function.Function;
 import org.jetbrains.annotations.Nullable;
 
-@Environment(EnvType.CLIENT)
+
 public class OBJBlockModel implements UnbakedModel, BakedModel {
     private static final Vector3f[] POSITIONS = new Vector3f[]{new Vector3f(), new Vector3f(), new Vector3f()};
 

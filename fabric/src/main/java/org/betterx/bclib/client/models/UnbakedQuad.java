@@ -5,14 +5,13 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.resources.model.ModelState;
 import net.minecraft.core.Direction;
 
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+
 
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-@Environment(EnvType.CLIENT)
+
 public class UnbakedQuad {
     private static final Vector4f POS = new Vector4f();
     private final float[] data = new float[20]; // 4 points with 3 positions and 2 uvs, 4 * (3 + 2)

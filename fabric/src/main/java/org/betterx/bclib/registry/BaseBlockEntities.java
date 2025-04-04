@@ -1,6 +1,6 @@
 package org.betterx.bclib.registry;
 
-import org.betterx.bclib.BCLibFabric;
+import org.betterx.bclib.BCLib;
 import org.betterx.bclib.blockentities.BaseBarrelBlockEntity;
 import org.betterx.bclib.blockentities.BaseChestBlockEntity;
 import org.betterx.bclib.blockentities.BaseFurnaceBlockEntity;
@@ -22,15 +22,15 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class BaseBlockEntities {
-    public static final DynamicBlockEntityType<BaseChestBlockEntity> CHEST = registerBlockEntityType(BCLibFabric.makeID(
+    public static final DynamicBlockEntityType<BaseChestBlockEntity> CHEST = registerBlockEntityType(BCLib.makeID(
             "chest"), BaseChestBlockEntity::new);
-    public static final DynamicBlockEntityType<BaseBarrelBlockEntity> BARREL = registerBlockEntityType(BCLibFabric.makeID(
+    public static final DynamicBlockEntityType<BaseBarrelBlockEntity> BARREL = registerBlockEntityType(BCLib.makeID(
             "barrel"), BaseBarrelBlockEntity::new);
 
-    public static final DynamicBlockEntityType<BaseFurnaceBlockEntity> FURNACE = registerBlockEntityType(BCLibFabric.makeID(
+    public static final DynamicBlockEntityType<BaseFurnaceBlockEntity> FURNACE = registerBlockEntityType(BCLib.makeID(
             "furnace"), BaseFurnaceBlockEntity::new);
 
-    public static final EntityType<EntityChair> CHAIR = registerEntity(BCLibFabric.makeID("chair"), EntityType.Builder.of(EntityChair::new, MobCategory.MISC)
+    public static final EntityType<EntityChair> CHAIR = registerEntity(BCLib.makeID("chair"), EntityType.Builder.of(EntityChair::new, MobCategory.MISC)
             .sized(0.5F, 0.8F)
             .fireImmune()
             .noSummon()
