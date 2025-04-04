@@ -50,7 +50,7 @@ public class UpdatesScreen extends WoverLayoutScreen {
         if (core.namespace.equals(WoverFabric.C_UI.namespace)) {
             return UPDATE_LOGO_LOCATION;
         }
-        ModContainer nfo = core.modContainer;
+     /*   ModContainer nfo = core.modContainer;
         if (nfo != null) {
             CustomValue element = nfo.getMetadata().getCustomValue("wover");
             if (element != null) {
@@ -60,7 +60,7 @@ public class UpdatesScreen extends WoverLayoutScreen {
                     return core.mk(icon.getAsString());
                 }
             }
-        }
+        }*/
         return null;
     }
 

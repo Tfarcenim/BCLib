@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
+import org.betterx.bclib.platform.Services;
 
 import java.util.*;
 import java.util.stream.Stream;
@@ -45,6 +46,7 @@ public final class ModCore implements Version.ModVersionProvider {
     public final String modId;
     public final String namespace;
     private final Version modVersion;
+    private final boolean isLoaded;
 
     public final ModContainer modContainer;
 
@@ -55,13 +57,13 @@ public final class ModCore implements Version.ModVersionProvider {
         this.namespace = namespace;
 
         Optional<ModContainer> optional = FabricLoader.getInstance().getModContainer(modId);
-        if (optional.isPresent()) {
+        isLoaded = Services.PLATFORM.isModLoaded(modID);
+        if (isLoaded) {
             this.modContainer = optional.get();
-            modVersion = new Version(modContainer.getMetadata().getVersion().toString());
+            modVersion = new Version(Services.PLATFORM.getVersion(modID));
         } else {
             this.modContainer = null;
             modVersion = new Version(0, 0, 0);
-            ;
         }
     }
 
@@ -145,7 +147,7 @@ public final class ModCore implements Version.ModVersionProvider {
      * @return true if the mod is loaded.
      */
     public boolean isLoaded() {
-        return modContainer != null;
+        return isLoaded;
     }
 
     /**
@@ -249,7 +251,7 @@ public final class ModCore implements Version.ModVersionProvider {
      * @return true if the game is currently running in a development environment.
      */
     public static boolean isDevEnvironment() {
-        return FabricLoader.getInstance().isDevelopmentEnvironment();
+        return Services.PLATFORM.isDevelopmentEnvironment();
     }
 
     /**
@@ -260,14 +262,4 @@ public final class ModCore implements Version.ModVersionProvider {
     public static boolean isClient() {
         return FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT;
     }
-
-    /**
-     * Returns true if the game is currently running on the server.
-     *
-     * @return true if the game is currently running on the server.
-     */
-    public static boolean isServer() {
-        return FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER;
-    }
-
 }

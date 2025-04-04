@@ -34,4 +34,9 @@ public class FabricPlatformHelper implements IPlatformHelper {
     public Path getConfigDir() {
         return FabricLoader.getInstance().getConfigDir();
     }
+
+    @Override
+    public String getVersion(String modid) {
+        return FabricLoader.getInstance().getModContainer(modid).orElseThrow().getMetadata().getVersion().getFriendlyString();
+    }
 }

@@ -37,7 +37,6 @@ public interface IPlatformHelper {
     }
 
     boolean isClient();
-
-
     Path getConfigDir();
+    String getVersion(String modid);
 }
